@@ -2,13 +2,50 @@ package simulator.model;
 
 import org.json.JSONObject;
 
-public class Road extends SimulatedObject {
+public abstract class Road extends SimulatedObject {
 
-	public Road(String id) {
+	private Junction _source;
+	private Junction _destination;
+	private int _length;
+	
+	private int _maximumSpeed;
+	private int _currentSpeedLimit;
+	
+	private int _contaminationAlarmLimit;
+	private Weather _weatherConditions;
+	private int _totalContamination;
+	
+	private List<Vehicle> vehicles;
+	
+	
+	Road(String id, Junction srcJunc, Junction destJunc, int maxSpeed, int condLimit, int length, Weather weather) {
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	void enter(Vehicle v) {
+		
+	}
+	
+	void exit(Vehicle v) {
+		
+	}
+	
+	void setWeather(Weather w) {
+		
+	}
+	
+	void addContamination(int c) {
+		
+	}
+	
+	abstract void reduceTotalContamination();
+	
+	abstract void updateSpeedLimit();
+	
+	abstract int calculateVehicleSpeed(Vehicle v);
+	
 	@Override
 	void advance(int time) {
 		// TODO Auto-generated method stub
