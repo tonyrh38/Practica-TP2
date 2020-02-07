@@ -1,5 +1,7 @@
 package simulator.model;
 
+import java.util.List;
+
 import org.json.JSONObject;
 
 public abstract class Road extends SimulatedObject {
@@ -23,6 +25,14 @@ public abstract class Road extends SimulatedObject {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	Junction getDestination() {
+		return _destination;
+	}
+	
+	int getLength() {
+		return _length;
+	}
 	
 	void enter(Vehicle v) {
 		
