@@ -1,8 +1,10 @@
 package simulator.model;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.json.JSONObject;
+
 
 public abstract class Road extends SimulatedObject {
 
@@ -10,19 +12,35 @@ public abstract class Road extends SimulatedObject {
 	private Junction _destination;
 	private int _length;
 	
-	private int _maximumSpeed;
-	private int _currentSpeedLimit;
+	protected int _maximumSpeed;
+	protected int _currentSpeedLimit;
 	
-	private int _contaminationAlarmLimit;
-	private Weather _weatherConditions;
-	private int _totalContamination;
+	protected int _contaminationAlarmLimit;
+	protected Weather _weatherConditions;
+	protected int _totalContamination;
 	
 	private List<Vehicle> vehicles;
 	
 	
-	Road(String id, Junction srcJunc, Junction destJunc, int maxSpeed, int condLimit, int length, Weather weather) {
+	Road(String id, Junction srcJunc, Junction destJunc, int maxSpeed, int contLimit, int length, Weather weather) throws Exception {
 		super(id);
-		// TODO Auto-generated constructor stub
+		
+		if(maxSpeed <= 0) throw new Exception("La velocidad máxima no puede ser menor o igual que cero.");
+		else _maximumSpeed = maxSpeed;
+		if(contLimit < 0) throw new Exception("El límite por contaminación no puede ser menor que cero.");
+		else _contaminationAlarmLimit = contLimit;
+		if(length <= 0) throw new Exception("La longitud de la carretera debe ser mayor que cero.");
+		else _length = length;
+		if(srcJunc == null || destJunc == null) throw new Exception("Los cruces deben existir.");
+		else {
+			_source = srcJunc;
+			_destination = destJunc;
+		}
+		if(_weatherConditions == null) throw new Exception("El tiempo debe tener un valor válido");
+		else _weatherConditions = weather;
+		
+		_currentSpeedLimit = _maximumSpeed;
+		_totalContamination = 0;
 	}
 
 	
@@ -34,20 +52,23 @@ public abstract class Road extends SimulatedObject {
 		return _length;
 	}
 	
-	void enter(Vehicle v) {
-		
+	void enter(Vehicle v) throws Exception {
+		if(v.getCurrentSpeed() != 0 || v.getLocation() != 0) throw new Exception("La velocidad y la localización del vehiculo deben ser 0.");
+		else vehicles.add(v);
 	}
 	
 	void exit(Vehicle v) {
-		
+		vehicles.remove(v);
 	}
 	
-	void setWeather(Weather w) {
-		
+	void setWeather(Weather w) throws Exception {
+		if(w == null) throw new Exception("El tiempo debe tener un valor válido");
+		else _weatherConditions = w;
 	}
 	
-	void addContamination(int c) {
-		
+	void addContamination(int c) throws Exception {
+		if(c < 0) throw new Exception("El límite por contaminación no puede ser menor que cero.");
+		else _totalContamination += c;
 	}
 	
 	abstract void reduceTotalContamination();
@@ -58,14 +79,35 @@ public abstract class Road extends SimulatedObject {
 	
 	@Override
 	void advance(int time) {
-		// TODO Auto-generated method stub
-
+		//1)
+		reduceTotalContamination();
+		//2)
+		updateSpeedLimit();
+		//3)
+		for	(Vehicle v : vehicles) {
+			//a)
+			try {
+				v.setSpeed(calculateVehicleSpeed(v));
+			} catch (Exception e) {
+				System.out.format(e.getMessage() + " %n %n");
+			}
+			//b)
+			v.advance(time);
+		}
+		Collections.sort(vehicles, (v1, v2) -> {return v2.getLocation() - v1.getLocation();});
 	}
 
 	@Override
 	public JSONObject report() {
-		// TODO Auto-generated method stub
-		return null;
+		JSONObject json = new JSONObject();
+		json.put("id", _id);
+		json.put("speedlimit", _currentSpeedLimit);
+		json.put("weather", _weatherConditions.name());
+		json.put("co2", _totalContamination);
+		for(Vehicle v : vehicles) {
+			json.append("vehicles", v.getId());
+		}
+		return json;
 	}
 
 }

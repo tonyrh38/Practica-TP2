@@ -22,4 +22,5 @@ public abstract class SimulatedObject {
 	abstract void advance(int time);
 
 	abstract public JSONObject report();
+	
 }
