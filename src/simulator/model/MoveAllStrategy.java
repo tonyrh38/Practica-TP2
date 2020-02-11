@@ -6,8 +6,7 @@ public class MoveAllStrategy implements DequeuingStrategy {
 
 	@Override
 	public List<Vehicle> dequeue(List<Vehicle> q) {
-		// TODO Auto-generated method stub
-		return null;
+		return q.subList(0, q.size());
 	}
 
 }

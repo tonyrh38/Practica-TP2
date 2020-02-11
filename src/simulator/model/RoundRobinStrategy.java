@@ -7,14 +7,16 @@ public class RoundRobinStrategy implements LightSwitchingStrategy {
 	private int _timeSlot;
 	
 	public RoundRobinStrategy(int timeSlot) {
-		// TODO Auto-generated constructor stub
+		_timeSlot = timeSlot;
 	}
 
+	
 	@Override
-	public int chooseNextGreen(List<Road> roads, List<List<Vehicle>> qs, int currGreen, int lastSwitchingTime,
-			int currTime) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int chooseNextGreen(List<Road> roads, List<List<Vehicle>> qs, int currGreen, int lastSwitchingTime, int currTime) {
+		if(roads.isEmpty()) return -1;
+		else if(currGreen == -1) return 0;
+		else if(currTime - lastSwitchingTime < _timeSlot) return currGreen;
+		else return (currGreen + 1) % roads.size();
 	}
 
 }

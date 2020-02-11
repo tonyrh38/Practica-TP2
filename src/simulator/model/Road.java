@@ -44,6 +44,10 @@ public abstract class Road extends SimulatedObject {
 	}
 
 	
+	Junction getSource() {
+		return _source;
+	}
+	
 	Junction getDestination() {
 		return _destination;
 	}

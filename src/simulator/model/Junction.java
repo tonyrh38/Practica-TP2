@@ -1,5 +1,6 @@
 package simulator.model;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,38 +24,76 @@ public class Junction extends SimulatedObject {
 	private int _y;
 	
 	
-	Junction(String id, LightSwitchingStrategy lsStrategy, DequeuingStrategy dsStrategy, int xCoor, int yCoor) {
+	Junction(String id, LightSwitchingStrategy lsStrategy, DequeuingStrategy dsStrategy, int xCoor, int yCoor) throws Exception {
 		super(id);
-		// TODO Auto-generated constructor stub
+		
+		if(lsStrategy == null || dsStrategy == null) throw new Exception("Las estrategias deben ser válidas.");
+		else {
+			_estrategiaCambioSemaforo = lsStrategy;
+			_estrategiaExtraerElementosCola = dsStrategy;
+		}
+		if(xCoor <= 0 || yCoor <= 0) throw new Exception("Las coordenadas deben ser positivas.");
+		else {
+			_x = xCoor;
+			_y = yCoor;
+		}
 	}
 	
 
-	void addIncommingRoad(Road r) {
-		
+	void addIncommingRoad(Road r) throws Exception {
+		if(r.getDestination() != this) throw new Exception("La carretera no conecta a este cruce.");
+		else {
+			_carreterasEntrantes.add(r);
+			LinkedList<Vehicle> nuevaCola = new LinkedList<Vehicle>();
+			_colas.add(nuevaCola);
+			_colaCarretera.put(r, nuevaCola);			
+		}
 	}
 	
-	void addOutGoingRoad(Road r) {
-		
+	void addOutGoingRoad(Road r) throws Exception {
+		if(_carreterasSalientes.containsKey(r.getDestination()) || r.getSource() != this) throw new Exception("La carretera no conecta este cruce.");
+		else _carreterasSalientes.put(r.getDestination(), r);
 	}
 	
 	void enter(Road r, Vehicle v) {
-		
+		_colaCarretera.get(r).add(v);
 	}
 	
 	Road roadTo(Junction j) {
-		
-		return null;
+		return _carreterasSalientes.get(j);
 	}
 	
 	@Override
 	void advance(int time) {
-		// TODO Auto-generated method stub
-
+		//1)
+		List<Vehicle> moverCola = _estrategiaExtraerElementosCola.dequeue(_colas.get(_indiceSemaforoVerde));
+		for(Vehicle v : moverCola) {
+			try {
+				v.moveToNextRoad();
+			} catch (Exception e) {
+				System.out.format(e.getMessage() + " %n %n");
+			}
+		}
+		moverCola.clear();
+		//2)
+		int idx = _estrategiaCambioSemaforo.chooseNextGreen(_carreterasEntrantes, _colas, _indiceSemaforoVerde, _ultimoPasoCambioSemaforo, time);
+		if(idx != _indiceSemaforoVerde) {
+			_indiceSemaforoVerde = idx;
+			_ultimoPasoCambioSemaforo = time;
+		}
 	}
 
 	@Override
 	public JSONObject report() {
-		// TODO Auto-generated method stub
+		JSONObject json = new JSONObject();
+		json.put("id", _id);
+		if(_indiceSemaforoVerde == -1) json.put("green", "none");
+		else json.put("green", _carreterasEntrantes.get(_indiceSemaforoVerde).getId());
+		for(List<Vehicle> lv : _colas) {
+			for(Vehicle v : lv) {
+				json.
+			}
+		}
 		return null;
 	}
 

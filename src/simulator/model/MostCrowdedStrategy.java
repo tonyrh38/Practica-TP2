@@ -7,14 +7,24 @@ public class MostCrowdedStrategy implements LightSwitchingStrategy {
 	private int _timeSlot;
 	
 	public MostCrowdedStrategy(int timeSlot) {
-		// TODO Auto-generated constructor stub
+		_timeSlot = timeSlot;
+	}
+	
+	
+	private int findMaxLengthFrom(int index, List<List<Vehicle>> qs) {
+		int maxLengthIdx = index;
+		for(int i = 0; i < qs.size(); i++) {
+			if(qs.get((i + index) % qs.size()).size() > qs.get(maxLengthIdx).size()) maxLengthIdx = (i + index) % qs.size();
+		}
+		return maxLengthIdx;
 	}
 
 	@Override
-	public int chooseNextGreen(List<Road> roads, List<List<Vehicle>> qs, int currGreen, int lastSwitchingTime,
-			int currTime) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int chooseNextGreen(List<Road> roads, List<List<Vehicle>> qs, int currGreen, int lastSwitchingTime, int currTime) {
+		if(roads.isEmpty()) return -1;
+		else if(currGreen == -1) return findMaxLengthFrom(0, qs);
+		else if(currTime - lastSwitchingTime < _timeSlot) return currGreen;
+		else return findMaxLengthFrom(currGreen + 1, qs);
 	}
 
 }
