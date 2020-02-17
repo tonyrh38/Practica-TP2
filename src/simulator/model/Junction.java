@@ -89,12 +89,17 @@ public class Junction extends SimulatedObject {
 		json.put("id", _id);
 		if(_indiceSemaforoVerde == -1) json.put("green", "none");
 		else json.put("green", _carreterasEntrantes.get(_indiceSemaforoVerde).getId());
+		int i = 0;
 		for(List<Vehicle> lv : _colas) {
+			JSONObject obj = new JSONObject();
+			obj.put("road", _carreterasEntrantes.get(i).getId());
 			for(Vehicle v : lv) {
-				json.
+				obj.append("vehicles", v.getId());
 			}
+			json.append("queues", obj);
+			i++;
 		}
-		return null;
+		return json;
 	}
 
 }

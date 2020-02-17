@@ -1,7 +1,11 @@
 package simulator.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.json.JSONObject;
 
@@ -16,53 +20,104 @@ public class RoadMap {
 	private Map<String, Vehicle> _mapaVehiculos;
 	
 	
-	RoadMap(List<Junction> lcr, List<Road> lca, List<Vehicle> lv, Map<String, Junction> mcr, Map<String, Road> mca, Map<String, Vehicle> mv){
-		
+	RoadMap(){
+		_listaCruces = new LinkedList<Junction>();
+		_listaCarreteras = new LinkedList<Road>();
+		_listaVehiculos = new LinkedList<Vehicle>();
+		_mapaCruces = new TreeMap<String, Junction>();
+		_mapaCarreteras = new TreeMap<String, Road>();
+		_mapaVehiculos = new TreeMap<String, Vehicle>();
 	}
 	
 	
-	void addJunction(Junction j) {
-		
+	private boolean roadConnects(Junction a, Junction b) {
+		boolean connected = false;
+		for(int i = 0; i < _listaCarreteras.size() && !connected; i++) {
+			if(_listaCarreteras.get(i).getSource().equals(a) && _listaCarreteras.get(i).getDestination().equals(b))
+				connected = true;
+		}
+		return connected;
 	}
 	
-	void addRoad(Road r) {
-		
+	void addJunction(Junction j) throws Exception {
+		if(_mapaCruces.containsKey(j.getId())) throw new Exception("El cruce ya existe");
+		else {
+			_listaCruces.add(j);
+			_mapaCruces.put(j.getId(),j);
+		}
 	}
 	
-	void addVehicle(Vehicle v) {
-		
+	void addRoad(Road r) throws Exception {
+		if(_mapaCarreteras.containsKey(r.getId()) || !_mapaCruces.containsKey(r.getSource().getId()) || !_mapaCruces.containsKey(r.getDestination().getId()))
+			throw new Exception("Compruebe que si la carretera o los cruces que une ya existen.");
+		else {
+			_listaCarreteras.add(r);
+			_mapaCarreteras.put(r.getId(), r);
+		}
+	}
+	
+	void addVehicle(Vehicle v) throws Exception {
+		if(_mapaVehiculos.containsKey(v.getId())) throw new Exception("EL vehiculo ya existe.");
+		else {
+			List<Junction> it = v.getItinerary();
+			boolean connected = false;
+			for(int i = 0; i < it.size() - 1 && connected; i++) {
+				if(!roadConnects(it.get(i), it.get(i + 1))) connected = false;
+			}
+			if(!connected) throw new Exception("El itinerario del vehiculo no es valido.");
+			else {
+				_listaVehiculos.add(v);
+				_mapaVehiculos.put(v.getId(), v);
+			}
+		}
 	}
 	
 	public Junction getJunction(String id) {
-		return null;
+		return _mapaCruces.get(id);
 	}
 	
 	public Road getRoad(String id) {
-		return null;
+		return _mapaCarreteras.get(id);
 	}
 	
 	public Vehicle getVehicle(String id) {
-		return null;
+		return _mapaVehiculos.get(id);
 	}
 	
 	public List<Junction> getJunctions(){
-		return null;
+		return Collections.unmodifiableList(new ArrayList<>(_listaCruces));
 	}
 	
 	public List<Road> getRoads(){
-		return null;
+		return Collections.unmodifiableList(new ArrayList<>(_listaCarreteras));
 	}
 	
 	public List<Vehicle> getVehicles(){
-		return null;
+		return Collections.unmodifiableList(new ArrayList<>(_listaVehiculos));
 	}
 	
 	void reset() {
-		
+		_listaCruces.clear();
+		_listaCarreteras.clear();
+		_listaVehiculos.clear();
+		_mapaCruces.clear();
+		_mapaCarreteras.clear();
+		_mapaVehiculos.clear();
 	}
 	
 	public JSONObject report() {
-		return null;
+		JSONObject json = new JSONObject();
+		for(Junction j : _listaCruces) {
+			json.append("junctions", j.report());
+		}
+		for(Road r : _listaCarreteras) {
+			json.append("road", r.report());
+		}
+		for(Vehicle v : _listaVehiculos) {
+			json.append("vehicles", v.report());
+		}
+		
+		return json;
 	}
 	
 }

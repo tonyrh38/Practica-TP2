@@ -54,6 +54,10 @@ public class Vehicle extends SimulatedObject {
 		else _contaminationClass = c;
 	}
 	
+	List<Junction> getItinerary(){
+		return _itinerary;
+	}
+	
 	int getCurrentSpeed() {
 		return _currentSpeed;
 	}
