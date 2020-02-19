@@ -2,10 +2,10 @@ package simulator.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 import org.json.JSONObject;
 
@@ -24,9 +24,9 @@ public class RoadMap {
 		_listaCruces = new LinkedList<Junction>();
 		_listaCarreteras = new LinkedList<Road>();
 		_listaVehiculos = new LinkedList<Vehicle>();
-		_mapaCruces = new TreeMap<String, Junction>();
-		_mapaCarreteras = new TreeMap<String, Road>();
-		_mapaVehiculos = new TreeMap<String, Vehicle>();
+		_mapaCruces = new HashMap<String, Junction>();
+		_mapaCarreteras = new HashMap<String, Road>();
+		_mapaVehiculos = new HashMap<String, Vehicle>();
 	}
 	
 	

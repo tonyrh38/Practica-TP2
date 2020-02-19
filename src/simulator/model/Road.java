@@ -1,6 +1,7 @@
 package simulator.model;
 
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.json.JSONObject;
@@ -19,7 +20,7 @@ public abstract class Road extends SimulatedObject {
 	protected Weather _weatherConditions;
 	protected int _totalContamination;
 	
-	private List<Vehicle> vehicles;
+	private List<Vehicle> _vehicles;
 	
 	
 	Road(String id, Junction srcJunc, Junction destJunc, int maxSpeed, int contLimit, int length, Weather weather) throws Exception {
@@ -41,6 +42,7 @@ public abstract class Road extends SimulatedObject {
 		
 		_currentSpeedLimit = _maximumSpeed;
 		_totalContamination = 0;
+		_vehicles = new LinkedList<Vehicle>();
 	}
 
 	
@@ -58,11 +60,11 @@ public abstract class Road extends SimulatedObject {
 	
 	void enter(Vehicle v) throws Exception {
 		if(v.getCurrentSpeed() != 0 || v.getLocation() != 0) throw new Exception("La velocidad y la localización del vehiculo deben ser 0.");
-		else vehicles.add(v);
+		else _vehicles.add(v);
 	}
 	
 	void exit(Vehicle v) {
-		vehicles.remove(v);
+		_vehicles.remove(v);
 	}
 	
 	void setWeather(Weather w) throws Exception {
@@ -88,7 +90,7 @@ public abstract class Road extends SimulatedObject {
 		//2)
 		updateSpeedLimit();
 		//3)
-		for	(Vehicle v : vehicles) {
+		for	(Vehicle v : _vehicles) {
 			//a)
 			try {
 				v.setSpeed(calculateVehicleSpeed(v));
@@ -98,7 +100,7 @@ public abstract class Road extends SimulatedObject {
 			//b)
 			v.advance(time);
 		}
-		Collections.sort(vehicles, (v1, v2) -> {return v2.getLocation() - v1.getLocation();});
+		Collections.sort(_vehicles, (v1, v2) -> {return v2.getLocation() - v1.getLocation();});
 	}
 
 	@Override
@@ -108,7 +110,7 @@ public abstract class Road extends SimulatedObject {
 		json.put("speedlimit", _currentSpeedLimit);
 		json.put("weather", _weatherConditions.name());
 		json.put("co2", _totalContamination);
-		for(Vehicle v : vehicles) {
+		for(Vehicle v : _vehicles) {
 			json.append("vehicles", v.getId());
 		}
 		return json;

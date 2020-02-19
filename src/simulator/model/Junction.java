@@ -1,5 +1,6 @@
 package simulator.model;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -37,6 +38,11 @@ public class Junction extends SimulatedObject {
 			_x = xCoor;
 			_y = yCoor;
 		}
+		
+		_carreterasEntrantes = new LinkedList<Road>();
+		_carreterasSalientes = new HashMap<Junction, Road>();
+		_colas = new LinkedList<List<Vehicle>>();
+		_colaCarretera = new HashMap<Road, List<Vehicle>>();
 	}
 	
 
