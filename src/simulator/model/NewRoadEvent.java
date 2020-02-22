@@ -3,15 +3,15 @@ package simulator.model;
 public abstract class NewRoadEvent extends Event {
 
 	String _id;
-	Junction _source;
-	Junction _destination;
+	String _source;
+	String _destination;
 	int _length;
 	int _contaminationAlarmLimit;
 	int _maximumSpeed;
 	Weather _weatherConditions;
 	
 	
-	public NewRoadEvent(int time, String id, Junction srcJun, Junction destJunc, int length, int co2Limit, int maxSpeed, Weather weather) {
+	public NewRoadEvent(int time, String id, String srcJun, String destJunc, int length, int co2Limit, int maxSpeed, Weather weather) {
 		super(time);
 		_id = id;
 		_source = srcJun;

@@ -45,6 +45,14 @@ public class Junction extends SimulatedObject {
 		_colaCarretera = new HashMap<Road, List<Vehicle>>();
 	}
 	
+	
+	int getX() {
+		return _x;
+	}
+	
+	int getY() {
+		return _y;
+	}
 
 	void addIncommingRoad(Road r) throws Exception {
 		if(r.getDestination() != this) throw new Exception("La carretera no conecta a este cruce.");

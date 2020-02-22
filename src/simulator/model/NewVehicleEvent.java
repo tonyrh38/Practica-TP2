@@ -1,5 +1,6 @@
 package simulator.model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class NewVehicleEvent extends Event {
@@ -7,10 +8,10 @@ public class NewVehicleEvent extends Event {
 	private String _id;
 	private int _maximumSpeed;
 	private int _contaminationClass;
-	private List<Junction> _itinerary;
+	private List<String> _itinerary;
 	
 	
-	public NewVehicleEvent(int time, String id, int maxSpeed, int contClass, List<Junction> itinerary) {
+	public NewVehicleEvent(int time, String id, int maxSpeed, int contClass, List<String> itinerary) {
 		super(time);
 		_id = id;
 		_maximumSpeed = maxSpeed;
@@ -20,7 +21,11 @@ public class NewVehicleEvent extends Event {
 
 	@Override
 	void execute(RoadMap map) throws Exception {
-		Vehicle v = new Vehicle(_id, _maximumSpeed, _contaminationClass, _itinerary);
+		List<Junction> itinerary = new LinkedList<Junction>();
+		for(String v : _itinerary) {
+			itinerary.add(map.getJunction(v));
+		}
+		Vehicle v = new Vehicle(_id, _maximumSpeed, _contaminationClass, itinerary);
 		map.addVehicle(v);
 		v.moveToNextRoad();
 	}
