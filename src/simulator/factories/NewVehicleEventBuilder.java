@@ -23,8 +23,8 @@ public class NewVehicleEventBuilder extends Builder<Event> {
 		int cl = data.getInt("class");
 		JSONArray it = data.getJSONArray("itinerary");
 		List<String> itinerary = new LinkedList<String>();
-		for(Object j : it) {
-			itinerary.add(j.toString());
+		for(int i = 0; i < it.length();i++) {
+			itinerary.add(it.getString(i));
 		}		
 		return new NewVehicleEvent(time, id, maxSpeed, cl, itinerary);
 	}
