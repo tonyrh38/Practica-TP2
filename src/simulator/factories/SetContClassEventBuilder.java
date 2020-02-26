@@ -7,16 +7,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import simulator.misc.Pair;
+import simulator.model.Event;
 import simulator.model.NewSetContClassEvent;
 
-public class SetContClassEventBuilder extends Builder<NewSetContClassEvent> {
+public class SetContClassEventBuilder extends Builder<Event> {
 
-	SetContClassEventBuilder(String type) {
-		super(type);
+	public SetContClassEventBuilder() {
+		super("set_cont_class");
 	}
 
 	@Override
-	protected NewSetContClassEvent createTheInstance(JSONObject data) {
+	protected Event createTheInstance(JSONObject data) {
 		int time = data.getInt("time");
 		List<Pair<String,Integer>> ls = new LinkedList<Pair<String,Integer>>();
 		JSONArray info = data.getJSONArray("info");

@@ -5,10 +5,10 @@ import org.json.JSONObject;
 import simulator.model.LightSwitchingStrategy;
 import simulator.model.RoundRobinStrategy;
 
-public class RoundRobinStretegyBuilder extends Builder<LightSwitchingStrategy>{
+public class RoundRobinStrategyBuilder extends Builder<LightSwitchingStrategy>{
 
-	RoundRobinStretegyBuilder(String type) {
-		super(type);
+	public RoundRobinStrategyBuilder() {
+		super("round_robin_lss");
 	}
 
 	@Override

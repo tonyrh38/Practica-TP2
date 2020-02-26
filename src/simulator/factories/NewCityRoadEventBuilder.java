@@ -8,8 +8,8 @@ import simulator.model.Weather;
 
 public class NewCityRoadEventBuilder extends Builder<Event> {
 
-	NewCityRoadEventBuilder(String type) {
-		super(type);
+	public NewCityRoadEventBuilder() {
+		super("new_city_road");
 	}
 
 	@Override

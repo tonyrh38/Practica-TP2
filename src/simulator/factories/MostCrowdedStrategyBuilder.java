@@ -7,8 +7,8 @@ import simulator.model.MostCrowdedStrategy;
 
 public class MostCrowdedStrategyBuilder extends Builder<LightSwitchingStrategy> {
 
-	MostCrowdedStrategyBuilder(String type) {
-		super(type);
+	public MostCrowdedStrategyBuilder() {
+		super("most_crowded_lss");
 	}
 
 	@Override

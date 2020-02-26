@@ -14,8 +14,8 @@ public class NewJunctionEventBuilder extends Builder<Event> {
 	Factory<DequeuingStrategy> _estrategiaExtraerElementosCola;
 	
 	
-	NewJunctionEventBuilder(String type, Factory<LightSwitchingStrategy> lssFactory, Factory<DequeuingStrategy> dqsFactory) {
-		super(type);
+	public NewJunctionEventBuilder(Factory<LightSwitchingStrategy> lssFactory, Factory<DequeuingStrategy> dqsFactory) {
+		super("new_junction");
 		_estrategiaCambioSemaforo = lssFactory;
 		_estrategiaExtraerElementosCola = dqsFactory;
 	}

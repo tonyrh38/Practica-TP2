@@ -11,8 +11,8 @@ import simulator.model.NewVehicleEvent;
 
 public class NewVehicleEventBuilder extends Builder<Event> {
 
-	NewVehicleEventBuilder(String type) {
-		super(type);
+	public NewVehicleEventBuilder() {
+		super("new_vehicle");
 	}
 
 	@Override
