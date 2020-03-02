@@ -4,12 +4,12 @@ import java.util.List;
 
 import simulator.misc.Pair;
 
-public class SetWeatherEvent extends Event {
+public class NewSetWeatherEvent extends Event {
 
 	private List<Pair<String,Weather>> _weatherList;
 	
 	
-	public SetWeatherEvent(int time, List<Pair<String,Weather>> ws) throws Exception {
+	public NewSetWeatherEvent(int time, List<Pair<String,Weather>> ws) throws Exception {
 		super(time);
 		if(ws == null) throw new Exception("La lista de pares no es valida.");
 		else _weatherList = ws;
