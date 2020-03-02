@@ -1,6 +1,11 @@
 package simulator.launcher;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,16 +17,19 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import simulator.control.Controller;
 import simulator.factories.*;
 import simulator.model.DequeuingStrategy;
 import simulator.model.Event;
 import simulator.model.LightSwitchingStrategy;
+import simulator.model.TrafficSimulator;
 
 public class Main {
 
 	private final static Integer _timeLimitDefaultValue = 10;
 	private static String _inFile = null;
 	private static String _outFile = null;
+	private static int _ticks = 0;
 	private static Factory<Event> _eventsFactory = null;
 
 	private static void parseArgs(String[] args) {
@@ -89,10 +97,7 @@ public class Main {
 	}
 	
 	private static void parseTicksOption(CommandLine line) throws ParseException {
-		int ticks = (line.getOptionValue("t") != null)? Integer.parseInt(line.getOptionValue("t")) : _timeLimitDefaultValue;
-		for(int i = 0; i < ticks; i++) {
-			
-		}
+		_ticks = (line.getOptionValue("t") != null)? Integer.parseInt(line.getOptionValue("t")) : _timeLimitDefaultValue;
 	}
 
 	private static void initFactories() {
@@ -119,7 +124,18 @@ public class Main {
 	}
 
 	private static void startBatchMode() throws IOException {
-		// TODO complete this method to start the simulation
+		InputStream in = new FileInputStream(new File(_inFile));
+		OutputStream out = (_outFile == null)? System.out : new FileOutputStream(new File(_outFile));
+		
+		TrafficSimulator ts = new TrafficSimulator();
+		try {
+			Controller controller = new Controller(ts, _eventsFactory);
+			controller.loadEvents(in);
+			controller.run(_ticks, out);
+		} catch (Exception e) {
+			System.out.format(e.getMessage() + " %n %n");
+		}		
+		in.close();
 	}
 
 	private static void start(String[] args) throws IOException {
