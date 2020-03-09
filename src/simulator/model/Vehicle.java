@@ -95,7 +95,7 @@ public class Vehicle extends SimulatedObject {
 	}
 	
 	void moveToNextRoad() throws Exception {
-		if(_status != VehicleStatus.PENDING || _status != VehicleStatus.WAITING) throw new Exception("El vehículo no se encuentra en un cruce.");
+		if(_status != VehicleStatus.PENDING && _status != VehicleStatus.WAITING) throw new Exception("El vehículo no se encuentra en un cruce.");
 		else {
 			if(_status == VehicleStatus.WAITING) _road.exit(this);
 			if(_lastJunctionIndex + 1 == _itinerary.size()) {

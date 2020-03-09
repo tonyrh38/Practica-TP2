@@ -79,22 +79,25 @@ public class Junction extends SimulatedObject {
 	
 	@Override
 	void advance(int time) {
-		//1)
-		List<Vehicle> moverCola = _estrategiaExtraerElementosCola.dequeue(_colas.get(_indiceSemaforoVerde));
-		for(Vehicle v : moverCola) {
-			try {
-				v.moveToNextRoad();
-			} catch (Exception e) {
-				System.out.format(e.getMessage() + " %n %n");
+		if(!_colas.isEmpty() && !_colaCarretera.isEmpty()) {
+			//1)
+			List<Vehicle> moverCola = _estrategiaExtraerElementosCola.dequeue(_colas.get(_indiceSemaforoVerde));
+			for(Vehicle v : moverCola) {
+				try {
+					v.moveToNextRoad();
+				} catch (Exception e) {
+					System.out.format(e.getMessage() + " %n %n");
+				}
+			}
+			moverCola.clear();
+			//2)
+			int idx = _estrategiaCambioSemaforo.chooseNextGreen(_carreterasEntrantes, _colas, _indiceSemaforoVerde, _ultimoPasoCambioSemaforo, time);
+			if(idx != _indiceSemaforoVerde) {
+				_indiceSemaforoVerde = idx;
+				_ultimoPasoCambioSemaforo = time;
 			}
 		}
-		moverCola.clear();
-		//2)
-		int idx = _estrategiaCambioSemaforo.chooseNextGreen(_carreterasEntrantes, _colas, _indiceSemaforoVerde, _ultimoPasoCambioSemaforo, time);
-		if(idx != _indiceSemaforoVerde) {
-			_indiceSemaforoVerde = idx;
-			_ultimoPasoCambioSemaforo = time;
-		}
+		
 	}
 
 	@Override

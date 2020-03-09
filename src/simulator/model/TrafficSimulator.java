@@ -28,11 +28,20 @@ public class TrafficSimulator {
 		//1)
 		_time++;
 		//2)
-		for(Event e : _listaEventos) {
+		// Este bucle hace que salte una Excepcion ConcurrentModificationException
+		/*for(Event e : _listaEventos) {
 			if(e.getTime() == _time) {
 				e.execute(_mapaCarreteras);
 				_listaEventos.remove(e);
 			}
+		}*/
+		for(int i = 0; i < _listaEventos.size();) {
+			Event e = _listaEventos.get(i);
+			if(e.getTime() == _time) {
+				e.execute(_mapaCarreteras);
+				_listaEventos.remove(i);
+			}
+			else i++;
 		}
 		//3)
 		for(Junction j : _mapaCarreteras.getJunctions()) {

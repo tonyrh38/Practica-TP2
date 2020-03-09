@@ -36,8 +36,10 @@ public abstract class Road extends SimulatedObject {
 		else {
 			_source = srcJunc;
 			_destination = destJunc;
+			_source.addOutGoingRoad(this);
+			_destination.addIncommingRoad(this);
 		}
-		if(_weatherConditions == null) throw new Exception("El tiempo debe tener un valor válido");
+		if(weather == null) throw new Exception("El tiempo debe tener un valor válido");
 		else _weatherConditions = weather;
 		
 		_currentSpeedLimit = _maximumSpeed;

@@ -49,7 +49,7 @@ public class RoadMap {
 	
 	void addRoad(Road r) throws Exception {
 		if(_mapaCarreteras.containsKey(r.getId()) || !_mapaCruces.containsKey(r.getSource().getId()) || !_mapaCruces.containsKey(r.getDestination().getId()))
-			throw new Exception("Compruebe que si la carretera o los cruces que une ya existen.");
+			throw new Exception("Compruebe si la carretera o los cruces que une ya existen.");
 		else {
 			_listaCarreteras.add(r);
 			_mapaCarreteras.put(r.getId(), r);
@@ -60,7 +60,7 @@ public class RoadMap {
 		if(_mapaVehiculos.containsKey(v.getId())) throw new Exception("EL vehiculo ya existe.");
 		else {
 			List<Junction> it = v.getItinerary();
-			boolean connected = false;
+			boolean connected = true;
 			for(int i = 0; i < it.size() - 1 && connected; i++) {
 				if(!roadConnects(it.get(i), it.get(i + 1))) connected = false;
 			}
