@@ -17,9 +17,9 @@ public class NewInterCityRoadEventBuilder extends Builder<Event> {
 		int time = data.getInt("time");
 		String id = data.getString("id");
 		String src = data.getString("src");
-		String dst = data.getString("dst");
+		String dst = data.getString("dest");
 		int length = data.getInt("length");
-		int co2limit = data.getInt("c02limit");
+		int co2limit = data.getInt("co2limit");
 		int maxSpeed = data.getInt("maxspeed");
 		Weather weather = Weather.valueOf(data.getString("weather").toUpperCase());
 		return new NewInterCityRoadEvent(time, id, src, dst, length, co2limit, maxSpeed, weather);
