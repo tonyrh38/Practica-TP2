@@ -8,7 +8,7 @@ public class NewCityRoadEvent extends NewRoadEvent {
 
 	@Override
 	void execute(RoadMap map) throws Exception {
-		CityRoad cr = new CityRoad(_id, map.getJunction(_source), map.getJunction(_destination), _length, _contaminationAlarmLimit, _maximumSpeed, _weatherConditions);
+		CityRoad cr = new CityRoad(_id, map.getJunction(_source), map.getJunction(_destination), _maximumSpeed, _contaminationAlarmLimit, _length, _weatherConditions);
 		map.addRoad(cr);
 	}
 

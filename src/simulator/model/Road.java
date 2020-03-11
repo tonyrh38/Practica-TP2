@@ -92,17 +92,19 @@ public abstract class Road extends SimulatedObject {
 		//2)
 		updateSpeedLimit();
 		//3)
-		for	(Vehicle v : _vehicles) {
-			//a)
-			try {
-				v.setSpeed(calculateVehicleSpeed(v));
-			} catch (Exception e) {
-				System.out.format(e.getMessage() + " %n %n");
+		if(!_vehicles.isEmpty()) {
+			for	(Vehicle v : _vehicles) {
+				//a)
+				try {
+					v.setSpeed(calculateVehicleSpeed(v));
+				} catch (Exception e) {
+					System.out.format(e.getMessage() + " %n %n");
+				}
+				//b)
+				v.advance(time);
 			}
-			//b)
-			v.advance(time);
+			Collections.sort(_vehicles, (v1, v2) -> {return v2.getLocation() - v1.getLocation();});
 		}
-		Collections.sort(_vehicles, (v1, v2) -> {return v2.getLocation() - v1.getLocation();});
 	}
 
 	@Override

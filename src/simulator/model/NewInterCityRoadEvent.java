@@ -8,7 +8,7 @@ public class NewInterCityRoadEvent extends NewRoadEvent {
 
 	@Override
 	void execute(RoadMap map) throws Exception {
-		InterCityRoad icr = new InterCityRoad(_id, map.getJunction(_source), map.getJunction(_destination), _length, _contaminationAlarmLimit, _maximumSpeed, _weatherConditions);
+		InterCityRoad icr = new InterCityRoad(_id, map.getJunction(_source), map.getJunction(_destination), _maximumSpeed, _contaminationAlarmLimit, _length, _weatherConditions);
 		map.addRoad(icr);
 	}
 

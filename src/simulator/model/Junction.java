@@ -53,7 +53,7 @@ public class Junction extends SimulatedObject {
 	int getY() {
 		return _y;
 	}
-
+	
 	void addIncommingRoad(Road r) throws Exception {
 		if(r.getDestination() != this) throw new Exception("La carretera no conecta a este cruce.");
 		else {
@@ -79,8 +79,8 @@ public class Junction extends SimulatedObject {
 	
 	@Override
 	void advance(int time) {
-		if(!_colas.isEmpty() && !_colaCarretera.isEmpty()) {
-			//1)
+		//1)
+		if(!_colas.isEmpty() && !_colas.get(_indiceSemaforoVerde).isEmpty()) {
 			List<Vehicle> moverCola = _estrategiaExtraerElementosCola.dequeue(_colas.get(_indiceSemaforoVerde));
 			for(Vehicle v : moverCola) {
 				try {
@@ -90,14 +90,13 @@ public class Junction extends SimulatedObject {
 				}
 			}
 			moverCola.clear();
-			//2)
-			int idx = _estrategiaCambioSemaforo.chooseNextGreen(_carreterasEntrantes, _colas, _indiceSemaforoVerde, _ultimoPasoCambioSemaforo, time);
-			if(idx != _indiceSemaforoVerde) {
-				_indiceSemaforoVerde = idx;
-				_ultimoPasoCambioSemaforo = time;
-			}
 		}
-		
+		//2)
+		int idx = _estrategiaCambioSemaforo.chooseNextGreen(_carreterasEntrantes, _colas, _indiceSemaforoVerde, _ultimoPasoCambioSemaforo, time);
+		if(idx != _indiceSemaforoVerde) {
+			_indiceSemaforoVerde = idx;
+			_ultimoPasoCambioSemaforo = time;
+		}
 	}
 
 	@Override

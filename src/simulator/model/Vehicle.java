@@ -72,7 +72,7 @@ public class Vehicle extends SimulatedObject {
 	
 	@Override
 	void advance(int time) {
-		if(_status != VehicleStatus.TRAVELING) {
+		if(_status == VehicleStatus.TRAVELING) {
 			//a)
 			int locAntigua = _location, locActual = _location + _currentSpeed, length = _road.getLength();
 			_location = (locActual <= length)? locActual : length;
@@ -103,7 +103,8 @@ public class Vehicle extends SimulatedObject {
 				_currentSpeed = 0;
 			}
 			else {
-				_itinerary.get(_lastJunctionIndex).roadTo(_itinerary.get(_lastJunctionIndex + 1)).enter(this);
+				_road = _itinerary.get(_lastJunctionIndex).roadTo(_itinerary.get(_lastJunctionIndex + 1));
+				_road.enter(this);
 				_lastJunctionIndex++;
 				_status = VehicleStatus.TRAVELING;
 				_location = 0;
