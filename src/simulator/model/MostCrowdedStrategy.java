@@ -21,9 +21,13 @@ public class MostCrowdedStrategy implements LightSwitchingStrategy {
 
 	@Override
 	public int chooseNextGreen(List<Road> roads, List<List<Vehicle>> qs, int currGreen, int lastSwitchingTime, int currTime) {
+		//1)
 		if(roads.isEmpty()) return -1;
+		//2)
 		else if(currGreen == -1) return findMaxLengthFrom(0, qs);
+		//3)
 		else if(currTime - lastSwitchingTime < _timeSlot) return currGreen;
+		//4)
 		else return findMaxLengthFrom(currGreen + 1, qs);
 	}
 

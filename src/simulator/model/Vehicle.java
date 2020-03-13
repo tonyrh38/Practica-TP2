@@ -4,6 +4,9 @@ import java.util.*;
 
 import org.json.JSONObject;
 
+import simulator.exceptions.WrongArgumentException;
+import simulator.exceptions.WrongStatusException;
+
 
 public class Vehicle extends SimulatedObject {
 
@@ -24,14 +27,14 @@ public class Vehicle extends SimulatedObject {
 	private int _totalTravelledDistance;
 	
 	
-	Vehicle(String id, int maxSpeed, int contClass, List<Junction> itinerary) throws Exception{
+	Vehicle(String id, int maxSpeed, int contClass, List<Junction> itinerary) throws WrongArgumentException{
 		super(id);
 		
-		if(maxSpeed <= 0) throw new Exception("La velocidad máxima no puede ser menor o igual que cero.");
+		if(maxSpeed <= 0) throw new WrongArgumentException("La velocidad máxima no puede ser menor o igual que cero.");
 		else _maximumSpeed = maxSpeed;
-		if(contClass < 0 || contClass > 10) throw new Exception("La clase de contaminación excede los límites (0 a 10).");
+		if(contClass < 0 || contClass > 10) throw new WrongArgumentException("La clase de contaminación excede los límites (0 a 10).");
 		else _contaminationClass = contClass;
-		if(itinerary.size() < 2) throw new Exception("El itinerario debe contener al menos dos cruces.");
+		if(itinerary.size() < 2) throw new WrongArgumentException("El itinerario debe contener al menos dos cruces.");
 		else _itinerary = Collections.unmodifiableList(new ArrayList<>(itinerary));
 		
 		_lastJunctionIndex = 0;
@@ -43,16 +46,6 @@ public class Vehicle extends SimulatedObject {
 		
 	}
 	
-	
-	void setSpeed(int s) throws Exception {
-		if(s < 0) throw new Exception("La velocidad máxima no puede ser menor o igual que cero.");
-		else _currentSpeed = (s < _maximumSpeed)? s : _maximumSpeed;
-	}
-	
-	void setContaminationClass(int c) throws Exception {
-		if(c < 0 || c > 10) throw new Exception("La clase de contaminación excede los límites (0 a 10).");
-		else _contaminationClass = c;
-	}
 	
 	List<Junction> getItinerary(){
 		return _itinerary;
@@ -68,6 +61,16 @@ public class Vehicle extends SimulatedObject {
 	
 	int getContaminationClass() {
 		return _contaminationClass;
+	}
+	
+	void setSpeed(int s) throws WrongArgumentException {
+		if(s < 0) throw new WrongArgumentException("La velocidad actual no puede ser menor que cero.");
+		else _currentSpeed = (s < _maximumSpeed)? s : _maximumSpeed;
+	}
+	
+	void setContaminationClass(int c) throws WrongArgumentException {
+		if(c < 0 || c > 10) throw new WrongArgumentException("La clase de contaminación excede los límites (0 a 10).");
+		else _contaminationClass = c;
 	}
 	
 	@Override
@@ -86,7 +89,7 @@ public class Vehicle extends SimulatedObject {
 				System.out.format(e.getMessage() + " %n %n");
 			}
 			//c)
-			if(_location == length) {
+			if(_location >= length) {
 				_road.getDestination().enter(_road, this);
 				_status = VehicleStatus.WAITING;
 				_currentSpeed = 0;
@@ -95,13 +98,16 @@ public class Vehicle extends SimulatedObject {
 	}
 	
 	void moveToNextRoad() throws Exception {
-		if(_status != VehicleStatus.PENDING && _status != VehicleStatus.WAITING) throw new Exception("El vehículo no se encuentra en un cruce.");
+		if(_status != VehicleStatus.PENDING && _status != VehicleStatus.WAITING) throw new WrongStatusException("El vehículo no se encuentra en un cruce.");
 		else {
+			//El vehiculo sale de su carretera en el cruce
 			if(_status == VehicleStatus.WAITING) _road.exit(this);
-			if(_lastJunctionIndex + 1 == _itinerary.size()) {
+			//Si el vehiculo llega a su destino:
+			if(_lastJunctionIndex + 1 >= _itinerary.size()) {
 				_status = VehicleStatus.ARRIVED;
 				_currentSpeed = 0;
 			}
+			//Si el vehiculo continua circulando:
 			else {
 				_road = _itinerary.get(_lastJunctionIndex).roadTo(_itinerary.get(_lastJunctionIndex + 1));
 				_road.enter(this);
@@ -121,7 +127,7 @@ public class Vehicle extends SimulatedObject {
 		json.put("co2", _totalContamination);
 		json.put("class", _contaminationClass);
 		json.put("status", _status.toString());
-		if(_status != VehicleStatus.PENDING || _status != VehicleStatus.ARRIVED) {
+		if(_status != VehicleStatus.PENDING && _status != VehicleStatus.ARRIVED) {
 			json.put("road", _road.getId());
 			json.put("location", _location);
 		}

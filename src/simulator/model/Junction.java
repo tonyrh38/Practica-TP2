@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
+import simulator.exceptions.WrongArgumentException;
+
 public class Junction extends SimulatedObject {
 
 	private List<Road> _carreterasEntrantes;
@@ -25,15 +27,15 @@ public class Junction extends SimulatedObject {
 	private int _y;
 	
 	
-	Junction(String id, LightSwitchingStrategy lsStrategy, DequeuingStrategy dsStrategy, int xCoor, int yCoor) throws Exception {
+	Junction(String id, LightSwitchingStrategy lsStrategy, DequeuingStrategy dsStrategy, int xCoor, int yCoor) throws WrongArgumentException {
 		super(id);
 		
-		if(lsStrategy == null || dsStrategy == null) throw new Exception("Las estrategias deben ser válidas.");
+		if(lsStrategy == null || dsStrategy == null) throw new WrongArgumentException("Las estrategias deben existir.");
 		else {
 			_estrategiaCambioSemaforo = lsStrategy;
 			_estrategiaExtraerElementosCola = dsStrategy;
 		}
-		if(xCoor <= 0 || yCoor <= 0) throw new Exception("Las coordenadas deben ser positivas.");
+		if(xCoor <= 0 || yCoor <= 0) throw new WrongArgumentException("Las coordenadas no deben ser negativas.");
 		else {
 			_x = xCoor;
 			_y = yCoor;
@@ -54,8 +56,8 @@ public class Junction extends SimulatedObject {
 		return _y;
 	}
 	
-	void addIncommingRoad(Road r) throws Exception {
-		if(r.getDestination() != this) throw new Exception("La carretera no conecta a este cruce.");
+	void addIncommingRoad(Road r) throws WrongArgumentException {
+		if(r.getDestination() != this) throw new WrongArgumentException("La carretera no conecta a este cruce.");
 		else {
 			_carreterasEntrantes.add(r);
 			LinkedList<Vehicle> nuevaCola = new LinkedList<Vehicle>();
@@ -64,8 +66,8 @@ public class Junction extends SimulatedObject {
 		}
 	}
 	
-	void addOutGoingRoad(Road r) throws Exception {
-		if(_carreterasSalientes.containsKey(r.getDestination()) || r.getSource() != this) throw new Exception("La carretera no conecta este cruce.");
+	void addOutGoingRoad(Road r) throws WrongArgumentException {
+		if(_carreterasSalientes.containsKey(r.getDestination()) || r.getSource() != this) throw new WrongArgumentException("La carretera no conecta este cruce, o ya existe una que lo hace.");
 		else _carreterasSalientes.put(r.getDestination(), r);
 	}
 	
@@ -109,8 +111,10 @@ public class Junction extends SimulatedObject {
 		for(List<Vehicle> lv : _colas) {
 			JSONObject obj = new JSONObject();
 			obj.put("road", _carreterasEntrantes.get(i).getId());
-			for(Vehicle v : lv) {
-				obj.append("vehicles", v.getId());
+			if(!lv.isEmpty()) {
+				for(Vehicle v : lv) {
+					obj.append("vehicles", v.getId());
+				}
 			}
 			json.append("queues", obj);
 			i++;

@@ -1,8 +1,10 @@
 package simulator.model;
 
+import simulator.exceptions.WrongArgumentException;
+
 public class InterCityRoad extends Road {
 
-	InterCityRoad(String id, Junction srcJunc, Junction destJunc, int maxSpeed, int contLimit, int length, Weather weather) throws Exception {
+	InterCityRoad(String id, Junction srcJunc, Junction destJunc, int maxSpeed, int contLimit, int length, Weather weather) throws WrongArgumentException {
 		super(id, srcJunc, destJunc, maxSpeed, contLimit, length, weather);
 	}
 
@@ -28,7 +30,7 @@ public class InterCityRoad extends Road {
 
 	@Override
 	void updateSpeedLimit() {
-		_currentSpeedLimit = (_maximumSpeed > _contaminationAlarmLimit)?(int)(_maximumSpeed*0.5):_maximumSpeed;
+		_currentSpeedLimit = (_totalContamination > _contaminationAlarmLimit)?(int)(_maximumSpeed*0.5):_maximumSpeed;
 	}
 
 	@Override
