@@ -1,0 +1,3609 @@
+{"states": [
+   {
+      "time": 1,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 261,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 87,
+               "road": "r1",
+               "co2": 261,
+               "location": 87,
+               "id": "v1",
+               "class": 3,
+               "speed": 87,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 50,
+               "road": "r2",
+               "co2": 0,
+               "location": 50,
+               "id": "v2",
+               "class": 0,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 2,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 520,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 174,
+               "road": "r1",
+               "co2": 522,
+               "location": 174,
+               "id": "v1",
+               "class": 3,
+               "speed": 87,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 100,
+               "road": "r2",
+               "co2": 0,
+               "location": 100,
+               "id": "v2",
+               "class": 0,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 3,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 779,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 261,
+               "road": "r1",
+               "co2": 783,
+               "location": 261,
+               "id": "v1",
+               "class": 3,
+               "speed": 87,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 150,
+               "road": "r2",
+               "co2": 0,
+               "location": 150,
+               "id": "v2",
+               "class": 0,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 4,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 1038,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 348,
+               "road": "r1",
+               "co2": 1044,
+               "location": 348,
+               "id": "v1",
+               "class": 3,
+               "speed": 87,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 200,
+               "road": "r2",
+               "co2": 0,
+               "location": 200,
+               "id": "v2",
+               "class": 0,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 5,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 1361,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 100,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 413,
+               "road": "r1",
+               "co2": 1369,
+               "location": 413,
+               "id": "v1",
+               "class": 5,
+               "speed": 65,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 250,
+               "road": "r2",
+               "co2": 100,
+               "location": 250,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 6,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 1684,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 198,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 478,
+               "road": "r1",
+               "co2": 1694,
+               "location": 478,
+               "id": "v1",
+               "class": 5,
+               "speed": 65,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 300,
+               "road": "r2",
+               "co2": 200,
+               "location": 300,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 7,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 2007,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 296,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 543,
+               "road": "r1",
+               "co2": 2019,
+               "location": 543,
+               "id": "v1",
+               "class": 5,
+               "speed": 65,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 350,
+               "road": "r2",
+               "co2": 300,
+               "location": 350,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 8,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 2330,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 394,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 608,
+               "road": "r1",
+               "co2": 2344,
+               "location": 608,
+               "id": "v1",
+               "class": 5,
+               "speed": 65,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 400,
+               "road": "r2",
+               "co2": 400,
+               "location": 400,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 9,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 2653,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 492,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 673,
+               "road": "r1",
+               "co2": 2669,
+               "location": 673,
+               "id": "v1",
+               "class": 5,
+               "speed": 65,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 450,
+               "road": "r2",
+               "co2": 500,
+               "location": 450,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 10,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 2976,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 582,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 738,
+               "road": "r1",
+               "co2": 2994,
+               "location": 738,
+               "id": "v1",
+               "class": 5,
+               "speed": 65,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 500,
+               "road": "r2",
+               "co2": 600,
+               "location": 500,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 11,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 3299,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 672,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 803,
+               "road": "r1",
+               "co2": 3319,
+               "location": 803,
+               "id": "v1",
+               "class": 5,
+               "speed": 65,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 550,
+               "road": "r2",
+               "co2": 700,
+               "location": 550,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 12,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 3622,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 762,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 868,
+               "road": "r1",
+               "co2": 3644,
+               "location": 868,
+               "id": "v1",
+               "class": 5,
+               "speed": 65,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 600,
+               "road": "r2",
+               "co2": 800,
+               "location": 600,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 13,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 3945,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 852,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 933,
+               "road": "r1",
+               "co2": 3969,
+               "location": 933,
+               "id": "v1",
+               "class": 5,
+               "speed": 65,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 650,
+               "road": "r2",
+               "co2": 900,
+               "location": 650,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 14,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4268,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 942,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 998,
+               "road": "r1",
+               "co2": 4294,
+               "location": 998,
+               "id": "v1",
+               "class": 5,
+               "speed": 65,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 700,
+               "road": "r2",
+               "co2": 1000,
+               "location": 700,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 15,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4276,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1032,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1000,
+               "road": "r1",
+               "co2": 4304,
+               "location": 1000,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "WAITING"
+            },
+            {
+               "distance": 750,
+               "road": "r2",
+               "co2": 1100,
+               "location": 750,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {
+                     "road": "r1",
+                     "vehicles": ["v1"]
+                  },
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 16,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4274,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1122,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1000,
+               "road": "r1",
+               "co2": 4304,
+               "location": 1000,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "WAITING"
+            },
+            {
+               "distance": 800,
+               "road": "r2",
+               "co2": 1200,
+               "location": 800,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {
+                     "road": "r1",
+                     "vehicles": ["v1"]
+                  },
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 17,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4272,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1212,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1000,
+               "road": "r1",
+               "co2": 4304,
+               "location": 1000,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "WAITING"
+            },
+            {
+               "distance": 850,
+               "road": "r2",
+               "co2": 1300,
+               "location": 850,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {
+                     "road": "r1",
+                     "vehicles": ["v1"]
+                  },
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 18,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4270,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1302,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1000,
+               "road": "r1",
+               "co2": 4304,
+               "location": 1000,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "WAITING"
+            },
+            {
+               "distance": 900,
+               "road": "r2",
+               "co2": 1400,
+               "location": 900,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {
+                     "road": "r1",
+                     "vehicles": ["v1"]
+                  },
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 19,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4268,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1392,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1000,
+               "road": "r1",
+               "co2": 4304,
+               "location": 1000,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "WAITING"
+            },
+            {
+               "distance": 950,
+               "road": "r2",
+               "co2": 1500,
+               "location": 950,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {
+                     "road": "r1",
+                     "vehicles": ["v1"]
+                  },
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 20,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4266,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1482,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 0,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1000,
+               "road": "r1",
+               "co2": 4304,
+               "location": 1000,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "WAITING"
+            },
+            {
+               "distance": 1000,
+               "road": "r2",
+               "co2": 1600,
+               "location": 1000,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "WAITING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {
+                     "road": "r1",
+                     "vehicles": ["v1"]
+                  },
+                  {
+                     "road": "r2",
+                     "vehicles": ["v2"]
+                  }
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 21,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4264,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1472,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 500,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1100,
+               "road": "r3",
+               "co2": 4804,
+               "location": 100,
+               "id": "v1",
+               "class": 5,
+               "speed": 100,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1000,
+               "road": "r2",
+               "co2": 1600,
+               "location": 1000,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "WAITING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {
+                     "road": "r2",
+                     "vehicles": ["v2"]
+                  }
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 22,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4262,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1462,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 990,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1200,
+               "road": "r3",
+               "co2": 5304,
+               "location": 200,
+               "id": "v1",
+               "class": 5,
+               "speed": 100,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1000,
+               "road": "r2",
+               "co2": 1600,
+               "location": 1000,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "WAITING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {
+                     "road": "r2",
+                     "vehicles": ["v2"]
+                  }
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 23,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4260,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1452,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 1270,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1260,
+               "road": "r3",
+               "co2": 5604,
+               "location": 260,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1000,
+               "road": "r2",
+               "co2": 1600,
+               "location": 1000,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "WAITING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {
+                     "road": "r2",
+                     "vehicles": ["v2"]
+                  }
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 24,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4258,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1442,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 1544,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1320,
+               "road": "r3",
+               "co2": 5904,
+               "location": 320,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1000,
+               "road": "r2",
+               "co2": 1600,
+               "location": 1000,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "WAITING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {
+                     "road": "r2",
+                     "vehicles": ["v2"]
+                  }
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 25,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4256,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1432,
+               "weather": "STORM",
+               "vehicles": ["v2"],
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 1813,
+               "weather": "SUNNY",
+               "vehicles": ["v1"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1380,
+               "road": "r3",
+               "co2": 6204,
+               "location": 380,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1000,
+               "road": "r2",
+               "co2": 1600,
+               "location": 1000,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "WAITING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {
+                     "road": "r2",
+                     "vehicles": ["v2"]
+                  }
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 26,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4254,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1422,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 2176,
+               "weather": "SUNNY",
+               "vehicles": [
+                  "v1",
+                  "v2"
+               ],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1440,
+               "road": "r3",
+               "co2": 6504,
+               "location": 440,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1050,
+               "road": "r3",
+               "co2": 1700,
+               "location": 50,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 27,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4252,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1412,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 2532,
+               "weather": "SUNNY",
+               "vehicles": [
+                  "v1",
+                  "v2"
+               ],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1500,
+               "road": "r3",
+               "co2": 6804,
+               "location": 500,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1100,
+               "road": "r3",
+               "co2": 1800,
+               "location": 100,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 28,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4250,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1402,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 2881,
+               "weather": "SUNNY",
+               "vehicles": [
+                  "v1",
+                  "v2"
+               ],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1560,
+               "road": "r3",
+               "co2": 7104,
+               "location": 560,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1150,
+               "road": "r3",
+               "co2": 1900,
+               "location": 150,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 29,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4248,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1392,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 3223,
+               "weather": "SUNNY",
+               "vehicles": [
+                  "v1",
+                  "v2"
+               ],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1620,
+               "road": "r3",
+               "co2": 7404,
+               "location": 620,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1200,
+               "road": "r3",
+               "co2": 2000,
+               "location": 200,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 30,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4246,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1382,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 3558,
+               "weather": "SUNNY",
+               "vehicles": [
+                  "v1",
+                  "v2"
+               ],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1680,
+               "road": "r3",
+               "co2": 7704,
+               "location": 680,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1250,
+               "road": "r3",
+               "co2": 2100,
+               "location": 250,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 31,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4244,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1372,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 3886,
+               "weather": "SUNNY",
+               "vehicles": [
+                  "v1",
+                  "v2"
+               ],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1740,
+               "road": "r3",
+               "co2": 8004,
+               "location": 740,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1300,
+               "road": "r3",
+               "co2": 2200,
+               "location": 300,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 32,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4242,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1362,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 4208,
+               "weather": "SUNNY",
+               "vehicles": [
+                  "v1",
+                  "v2"
+               ],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1800,
+               "road": "r3",
+               "co2": 8304,
+               "location": 800,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1350,
+               "road": "r3",
+               "co2": 2300,
+               "location": 350,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 33,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4240,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1352,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 4523,
+               "weather": "SUNNY",
+               "vehicles": [
+                  "v1",
+                  "v2"
+               ],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1860,
+               "road": "r3",
+               "co2": 8604,
+               "location": 860,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1400,
+               "road": "r3",
+               "co2": 2400,
+               "location": 400,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 34,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4238,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1342,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 4832,
+               "weather": "SUNNY",
+               "vehicles": [
+                  "v1",
+                  "v2"
+               ],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1920,
+               "road": "r3",
+               "co2": 8904,
+               "location": 920,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1450,
+               "road": "r3",
+               "co2": 2500,
+               "location": 450,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 35,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4236,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1332,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5135,
+               "weather": "SUNNY",
+               "vehicles": [
+                  "v1",
+                  "v2"
+               ],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 1980,
+               "road": "r3",
+               "co2": 9204,
+               "location": 980,
+               "id": "v1",
+               "class": 5,
+               "speed": 60,
+               "status": "TRAVELING"
+            },
+            {
+               "distance": 1500,
+               "road": "r3",
+               "co2": 2600,
+               "location": 500,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 36,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4234,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1322,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5232,
+               "weather": "SUNNY",
+               "vehicles": [
+                  "v1",
+                  "v2"
+               ],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "road": "r3",
+               "co2": 9304,
+               "location": 1000,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "WAITING"
+            },
+            {
+               "distance": 1550,
+               "road": "r3",
+               "co2": 2700,
+               "location": 550,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{
+                  "road": "r3",
+                  "vehicles": ["v1"]
+               }],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 37,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4232,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1312,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5227,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 1600,
+               "road": "r3",
+               "co2": 2800,
+               "location": 600,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 38,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4230,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1302,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5222,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 1650,
+               "road": "r3",
+               "co2": 2900,
+               "location": 650,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 39,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4228,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1292,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5217,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 1700,
+               "road": "r3",
+               "co2": 3000,
+               "location": 700,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 40,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4226,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1282,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5212,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 1750,
+               "road": "r3",
+               "co2": 3100,
+               "location": 750,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 41,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4224,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1272,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5207,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 1800,
+               "road": "r3",
+               "co2": 3200,
+               "location": 800,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 42,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4222,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1262,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5202,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 1850,
+               "road": "r3",
+               "co2": 3300,
+               "location": 850,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 43,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4220,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1252,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5197,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 1900,
+               "road": "r3",
+               "co2": 3400,
+               "location": 900,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 44,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4218,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1242,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5193,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 1950,
+               "road": "r3",
+               "co2": 3500,
+               "location": 950,
+               "id": "v2",
+               "class": 2,
+               "speed": 50,
+               "status": "TRAVELING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 45,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4216,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1232,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5189,
+               "weather": "SUNNY",
+               "vehicles": ["v2"],
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 2000,
+               "road": "r3",
+               "co2": 3600,
+               "location": 1000,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "WAITING"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{
+                  "road": "r3",
+                  "vehicles": ["v2"]
+               }],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 46,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4214,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1222,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 5085,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 2000,
+               "co2": 3600,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "ARRIVED"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 47,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4212,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1212,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 4983,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 2000,
+               "co2": 3600,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "ARRIVED"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 48,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4210,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1202,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 4883,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 2000,
+               "co2": 3600,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "ARRIVED"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 49,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4208,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1192,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 4785,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 2000,
+               "co2": 3600,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "ARRIVED"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r2",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   },
+   {
+      "time": 50,
+      "state": {
+         "road": [
+            {
+               "speedlimit": 120,
+               "co2": 4206,
+               "weather": "SUNNY",
+               "id": "r1"
+            },
+            {
+               "speedlimit": 120,
+               "co2": 1182,
+               "weather": "STORM",
+               "id": "r2"
+            },
+            {
+               "speedlimit": 60,
+               "co2": 4689,
+               "weather": "SUNNY",
+               "id": "r3"
+            }
+         ],
+         "vehicles": [
+            {
+               "distance": 2000,
+               "co2": 9304,
+               "id": "v1",
+               "class": 5,
+               "speed": 0,
+               "status": "ARRIVED"
+            },
+            {
+               "distance": 2000,
+               "co2": 3600,
+               "id": "v2",
+               "class": 2,
+               "speed": 0,
+               "status": "ARRIVED"
+            }
+         ],
+         "junctions": [
+            {
+               "green": "none",
+               "id": "j1"
+            },
+            {
+               "green": "none",
+               "id": "j2"
+            },
+            {
+               "green": "r1",
+               "queues": [
+                  {"road": "r1"},
+                  {"road": "r2"}
+               ],
+               "id": "j3"
+            },
+            {
+               "green": "r3",
+               "queues": [{"road": "r3"}],
+               "id": "j4"
+            }
+         ]
+      }
+   }
+]}
