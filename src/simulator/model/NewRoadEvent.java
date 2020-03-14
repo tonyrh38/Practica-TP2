@@ -1,7 +1,8 @@
 package simulator.model;
 
 public abstract class NewRoadEvent extends Event {
-
+	
+	//Los atributos se dejan en protected para que las clases hijas puedan acceder a ellos
 	String _id;
 	String _source;
 	String _destination;

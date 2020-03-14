@@ -9,6 +9,8 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
+import simulator.exceptions.WrongArgumentException;
+
 public class RoadMap {
 	
 	private List<Junction> _listaCruces;
@@ -30,41 +32,41 @@ public class RoadMap {
 	}
 	
 	
-	private boolean roadConnects(Junction a, Junction b) {
+	private boolean roadConnects(Junction src, Junction dest) {
 		boolean connected = false;
 		for(int i = 0; i < _listaCarreteras.size() && !connected; i++) {
-			if(_listaCarreteras.get(i).getSource().equals(a) && _listaCarreteras.get(i).getDestination().equals(b))
+			if(_listaCarreteras.get(i).getSource().equals(src) && _listaCarreteras.get(i).getDestination().equals(dest))
 				connected = true;
 		}
 		return connected;
 	}
 	
-	void addJunction(Junction j) throws Exception {
-		if(_mapaCruces.containsKey(j.getId())) throw new Exception("El cruce ya existe");
+	void addJunction(Junction j) throws WrongArgumentException {
+		if(_mapaCruces.containsKey(j.getId())) throw new WrongArgumentException("El cruce ya existe");
 		else {
 			_listaCruces.add(j);
 			_mapaCruces.put(j.getId(),j);
 		}
 	}
 	
-	void addRoad(Road r) throws Exception {
+	void addRoad(Road r) throws WrongArgumentException {
 		if(_mapaCarreteras.containsKey(r.getId()) || !_mapaCruces.containsKey(r.getSource().getId()) || !_mapaCruces.containsKey(r.getDestination().getId()))
-			throw new Exception("Compruebe si la carretera o los cruces que une ya existen.");
+			throw new WrongArgumentException("La carretera o los cruces que une ya existen.");
 		else {
 			_listaCarreteras.add(r);
 			_mapaCarreteras.put(r.getId(), r);
 		}
 	}
 	
-	void addVehicle(Vehicle v) throws Exception {
-		if(_mapaVehiculos.containsKey(v.getId())) throw new Exception("EL vehiculo ya existe.");
+	void addVehicle(Vehicle v) throws WrongArgumentException {
+		if(_mapaVehiculos.containsKey(v.getId())) throw new WrongArgumentException("El vehiculo ya existe.");
 		else {
 			List<Junction> it = v.getItinerary();
 			boolean connected = true;
 			for(int i = 0; i < it.size() - 1 && connected; i++) {
 				if(!roadConnects(it.get(i), it.get(i + 1))) connected = false;
 			}
-			if(!connected) throw new Exception("El itinerario del vehiculo no es valido.");
+			if(!connected) throw new WrongArgumentException("El itinerario del vehiculo no es valido.");
 			else {
 				_listaVehiculos.add(v);
 				_mapaVehiculos.put(v.getId(), v);

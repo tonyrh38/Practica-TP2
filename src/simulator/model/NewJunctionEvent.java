@@ -1,5 +1,7 @@
 package simulator.model;
 
+import simulator.exceptions.WrongArgumentException;
+
 public class NewJunctionEvent extends Event {
 
 	private String _id;
@@ -19,7 +21,7 @@ public class NewJunctionEvent extends Event {
 	}
 
 	@Override
-	void execute(RoadMap map) throws Exception {
+	void execute(RoadMap map) throws WrongArgumentException {
 		Junction j = new Junction(_id, _estrategiaCambioSemaforo, _estrategiaExtraerElementosCola, _x, _y);
 		map.addJunction(j);
 	}

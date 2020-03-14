@@ -3,6 +3,7 @@ package simulator.model;
 import java.util.LinkedList;
 import java.util.List;
 
+
 public class NewVehicleEvent extends Event {
 
 	private String _id;
@@ -20,6 +21,7 @@ public class NewVehicleEvent extends Event {
 	}
 
 	@Override
+	// Se deja en "throws Exception" porque puede lanzar tanto WrongArgumentException como WrongStatusException desde el metodo "v.moveToNextRoad()"
 	void execute(RoadMap map) throws Exception {
 		List<Junction> itinerary = new LinkedList<Junction>();
 		for(String v : _itinerary) {

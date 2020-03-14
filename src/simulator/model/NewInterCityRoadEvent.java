@@ -1,5 +1,7 @@
 package simulator.model;
 
+import simulator.exceptions.WrongArgumentException;
+
 public class NewInterCityRoadEvent extends NewRoadEvent {
 
 	public NewInterCityRoadEvent(int time, String id, String srcJun, String destJunc, int length, int co2Limit, int maxSpeed, Weather weather) {
@@ -7,7 +9,7 @@ public class NewInterCityRoadEvent extends NewRoadEvent {
 	}
 
 	@Override
-	void execute(RoadMap map) throws Exception {
+	void execute(RoadMap map) throws WrongArgumentException {
 		InterCityRoad icr = new InterCityRoad(_id, map.getJunction(_source), map.getJunction(_destination), _maximumSpeed, _contaminationAlarmLimit, _length, _weatherConditions);
 		map.addRoad(icr);
 	}

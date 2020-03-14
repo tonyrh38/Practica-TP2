@@ -63,6 +63,10 @@ public class Vehicle extends SimulatedObject {
 		return _contaminationClass;
 	}
 	
+	boolean isStopped() {
+		return _status == VehicleStatus.WAITING || _status == VehicleStatus.ARRIVED;
+	}
+	
 	void setSpeed(int s) throws WrongArgumentException {
 		if(s < 0) throw new WrongArgumentException("La velocidad actual no puede ser menor que cero.");
 		else _currentSpeed = (s < _maximumSpeed)? s : _maximumSpeed;
@@ -81,7 +85,7 @@ public class Vehicle extends SimulatedObject {
 			_location = (locActual <= length)? locActual : length;
 			_totalTravelledDistance += _location - locAntigua;
 			//b)
-			int cont = (_location - locAntigua)*_contaminationClass/10;
+			int cont = (_location - locAntigua)*_contaminationClass;
 			_totalContamination += cont;
 			try {
 				_road.addContamination(cont);
@@ -97,6 +101,7 @@ public class Vehicle extends SimulatedObject {
 		}
 	}
 	
+	// Se deja en "throws Exception" porque puede lanzar tanto WrongArgumentException como WrongStatusException
 	void moveToNextRoad() throws Exception {
 		if(_status != VehicleStatus.PENDING && _status != VehicleStatus.WAITING) throw new WrongStatusException("El vehículo no se encuentra en un cruce.");
 		else {
@@ -110,10 +115,10 @@ public class Vehicle extends SimulatedObject {
 			//Si el vehiculo continua circulando:
 			else {
 				_road = _itinerary.get(_lastJunctionIndex).roadTo(_itinerary.get(_lastJunctionIndex + 1));
+				_location = 0;
 				_road.enter(this);
 				_lastJunctionIndex++;
 				_status = VehicleStatus.TRAVELING;
-				_location = 0;
 			}
 		}
 	}

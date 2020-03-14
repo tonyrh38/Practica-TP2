@@ -97,10 +97,12 @@ public abstract class Road extends SimulatedObject {
 		if(!_vehicles.isEmpty()) {
 			for	(Vehicle v : _vehicles) {
 				//a)
-				try {
-					v.setSpeed(calculateVehicleSpeed(v));
-				} catch (Exception e) {
-					System.out.format(e.getMessage() + " %n %n");
+				if(!v.isStopped()) {
+					try {
+						v.setSpeed(calculateVehicleSpeed(v));
+					} catch (Exception e) {
+						System.out.format(e.getMessage() + " %n %n");
+					}
 				}
 				//b)
 				v.advance(time);
