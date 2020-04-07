@@ -11,12 +11,14 @@ import org.json.JSONTokener;
 import simulator.exceptions.WrongArgumentException;
 import simulator.factories.Factory;
 import simulator.model.Event;
+import simulator.model.TrafficSimObserver;
 import simulator.model.TrafficSimulator;
 
 public class Controller {
 	
 	TrafficSimulator _simuladorTrafico;
 	Factory<Event> _factoriaEventos;
+	
 	
 	public Controller(TrafficSimulator sim, Factory<Event> eventsFactory) throws WrongArgumentException {
 		if(sim == null || eventsFactory == null) throw new WrongArgumentException("Los datos no son validos.");
@@ -39,8 +41,7 @@ public class Controller {
 	}
 	
 	public void run(int n, OutputStream out) {
-		JSONObject json = new JSONObject();
-		
+		JSONObject json = new JSONObject();	
 		try {
 			for(int i = 0; i < n; i++) {
 				_simuladorTrafico.advance();
@@ -55,6 +56,11 @@ public class Controller {
 	
 	public void reset() {
 		_simuladorTrafico.reset();
+	}
+	
+	// Model Methods
+	void addObserver(TrafficSimObserver o) {
+		
 	}
 	
 }
