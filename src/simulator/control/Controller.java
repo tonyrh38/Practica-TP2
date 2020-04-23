@@ -60,7 +60,15 @@ public class Controller {
 	
 	// Model Methods
 	void addObserver(TrafficSimObserver o) {
-		
+		_simuladorTrafico.addObserver(o);
+	}
+	
+	void removeObserver(TrafficSimObserver o) {
+		_simuladorTrafico.removeObserver(o);
+	}
+	
+	void addEvent(Event e) {
+		_simuladorTrafico.addEvent(e);
 	}
 	
 }
