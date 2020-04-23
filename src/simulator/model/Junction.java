@@ -48,13 +48,18 @@ public class Junction extends SimulatedObject {
 	}
 	
 	
-	int getX() {
+	public boolean isGreen(Road road) {
+		return _indiceSemaforoVerde != -1 && road.equals(_carreterasEntrantes.get(_indiceSemaforoVerde));
+	}
+	
+	public int getX() {
 		return _x;
 	}
 	
-	int getY() {
+	public int getY() {
 		return _y;
 	}
+	
 	
 	void addIncommingRoad(Road r) throws WrongArgumentException {
 		if(r.getDestination() != this) throw new WrongArgumentException("La carretera no conecta a este cruce.");
