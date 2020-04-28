@@ -26,7 +26,7 @@ public class NewSetContClassEvent extends Event {
 	
 	@Override
 	public String toString() {
-		return "New ContaminationClass Setted";
+		return "Change CO2 Class: " + _contaminationClassList.toString();
 	}
 	
 }

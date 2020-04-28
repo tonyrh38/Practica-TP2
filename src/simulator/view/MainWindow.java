@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -15,6 +16,8 @@ import simulator.control.Controller;
 
 public class MainWindow extends JFrame {
 
+	private static final long serialVersionUID = 7859475291117238592L;
+	
 	private Controller _controller;
 	
 	
@@ -47,6 +50,10 @@ public class MainWindow extends JFrame {
 		JPanel eventsView =	createViewPanel(new JTable(new EventsTableModel(_controller)), "Events");
 		eventsView.setPreferredSize(new Dimension(500, 200));
 		tablesPanel.add(eventsView);
+		
+		JPanel vehiclesView = createViewPanel(new JTable(new VehiclesTableModel(_controller)), "Vehicles");
+		vehiclesView.setPreferredSize(new Dimension(500, 200));
+		tablesPanel.add(vehiclesView);
 		// TODO add other tables
 		// ...
 		
@@ -64,7 +71,7 @@ public class MainWindow extends JFrame {
 	
 	private JPanel createViewPanel(JComponent c, String title) {
 		JPanel p = new JPanel(new BorderLayout());
-		// TODO add a framed border to p with title
+		p.setBorder(BorderFactory.createTitledBorder(title));
 		p.add(new JScrollPane(c));
 		return p ;
 		}

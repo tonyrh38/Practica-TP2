@@ -51,11 +51,15 @@ public class Vehicle extends SimulatedObject {
 		return _status == VehicleStatus.WAITING || _status == VehicleStatus.ARRIVED;
 	}
 	
-	List<Junction> getItinerary(){
+	public List<Junction> getItinerary(){
 		return _itinerary;
 	}
 	
-	int getCurrentSpeed() {
+	public int getMaximumSpeed() {
+		return _maximumSpeed;
+	}
+	
+	public int getCurrentSpeed() {
 		return _currentSpeed;
 	}
 	
@@ -73,6 +77,14 @@ public class Vehicle extends SimulatedObject {
 	
 	public int getContaminationClass() {
 		return _contaminationClass;
+	}
+	
+	public int getTotalContamination() {
+		return _totalContamination;
+	}
+	
+	public int getTotalTravelledDistance() {
+		return _totalTravelledDistance;
 	}
 	
 	void setSpeed(int s) throws WrongArgumentException {

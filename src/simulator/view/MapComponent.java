@@ -211,9 +211,9 @@ public class MapComponent extends JPanel implements TrafficSimObserver {
 		repaint();
 	}
 
+	// TrafficSimObserver Interface Methods
 	@Override
-	public void onAdvanceStart(RoadMap map, List<Event> events, int time) {
-	}
+	public void onAdvanceStart(RoadMap map, List<Event> events, int time) {}
 
 	@Override
 	public void onAdvanceEnd(RoadMap map, List<Event> events, int time) {
@@ -236,7 +236,6 @@ public class MapComponent extends JPanel implements TrafficSimObserver {
 	}
 
 	@Override
-	public void onError(String err) {
-	}
+	public void onError(String err) {}
 
 }

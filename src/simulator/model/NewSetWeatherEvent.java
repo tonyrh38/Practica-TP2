@@ -26,7 +26,7 @@ public class NewSetWeatherEvent extends Event {
 
 	@Override
 	public String toString() {
-		return "New Weather Setted";
+		return "Change Weather: " + _weatherList.toString();
 	}
 	
 }
