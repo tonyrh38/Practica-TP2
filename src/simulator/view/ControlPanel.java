@@ -2,7 +2,6 @@ package simulator.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.FileInputStream;
 import java.util.List;
 
@@ -10,6 +9,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -22,13 +22,11 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 
 	private static final long serialVersionUID = -4423199850333010661L;
 	
-	private JButton _load;
 	private JFileChooser _fc;
-	private JButton _changeCO2;
-	
 	private Controller _controller;
 	
 	public ControlPanel(Controller controller) {
+		_fc = new JFileChooser();
 		_controller = controller;
 		initGUI();
 	}
@@ -37,9 +35,9 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 	private void initGUI() {
 		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		//TODO: Revisar si se necesitan los botones como atributos privados
-		_load = new JButton();
-		_load.setToolTipText("Load a file");
-		_load.addActionListener(new ActionListener() {
+		JButton load = new JButton();
+		load.setToolTipText("Load a file");
+		load.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int option = _fc.showOpenDialog(null);
@@ -54,20 +52,19 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 				}
 			}	
 		});
-		_load.setIcon(new ImageIcon("resources/icons/open.png"));
-		add(_load);
+		load.setIcon(new ImageIcon("resources/icons/open.png"));
+		add(load);
 		
-		_changeCO2 = new JButton();
-		_changeCO2.setToolTipText("Change CO2 Class");
-		_changeCO2.addActionListener(new  ActionListener() {
+		JButton changeCO2 = new JButton();
+		changeCO2.setToolTipText("Change CO2 Class");
+		changeCO2.addActionListener(new  ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO: Completa con la clase ChangeCO2ClassDialog
+				new ChangeCO2ClassDialog(_controller, (JFrame)getParent());
 			}
 		});
-		_changeCO2.setIcon(new ImageIcon("resources/icons/co2class.png"));
-		add(_changeCO2);
-		
+		changeCO2.setIcon(new ImageIcon("resources/icons/co2class.png"));
+		add(changeCO2);
 	}
 	
 	// TrafficSimObserver Interface Methods

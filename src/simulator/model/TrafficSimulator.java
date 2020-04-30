@@ -22,6 +22,7 @@ public class TrafficSimulator implements Observable<TrafficSimObserver> {
 	}
 
 	
+	// Observable Interface Methods
 	@Override
 	public void addObserver(TrafficSimObserver o) {
 		_observers.add(o);

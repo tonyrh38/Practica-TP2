@@ -70,5 +70,9 @@ public class Controller {
 	public void addEvent(Event e) {
 		_simuladorTrafico.addEvent(e);
 	}
+
+	public String[] getVehiclesID() {
+		return null;
+	}
 	
 }

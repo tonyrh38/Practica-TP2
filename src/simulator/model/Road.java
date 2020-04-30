@@ -66,8 +66,20 @@ public abstract class Road extends SimulatedObject {
 		return _length;
 	}
 	
+	public int getMaximumSpeed() {
+		return _maximumSpeed;
+	}
+	
+	public int getCurrentSpeedLimit() {
+		return _currentSpeedLimit;
+	}
+	
 	public int getContaminationAlarmLimit() {
 		return _contaminationAlarmLimit;
+	}
+	
+	public Weather getWeatherConditions() {
+		return _weatherConditions;
 	}
 	
 	public int getTotalContamination() {

@@ -54,6 +54,10 @@ public class MainWindow extends JFrame {
 		JPanel vehiclesView = createViewPanel(new JTable(new VehiclesTableModel(_controller)), "Vehicles");
 		vehiclesView.setPreferredSize(new Dimension(500, 200));
 		tablesPanel.add(vehiclesView);
+		
+		JPanel roadsView = createViewPanel(new JTable(new RoadsTableModel(_controller)), "Roads");
+		roadsView.setPreferredSize(new Dimension(500, 200));
+		tablesPanel.add(roadsView);
 		// TODO add other tables
 		// ...
 		
