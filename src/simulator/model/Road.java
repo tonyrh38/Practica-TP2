@@ -86,6 +86,10 @@ public abstract class Road extends SimulatedObject {
 		return _totalContamination;
 	}
 	
+	public List<Vehicle> getVehicles(){
+		return _vehicles;
+	}
+	
 	void enter(Vehicle v) throws WrongArgumentException {
 		if(v.getCurrentSpeed() != 0 || v.getLocation() != 0) throw new WrongArgumentException("La velocidad y la localización del vehiculo deben ser 0.");
 		else _vehicles.add(v);

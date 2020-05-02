@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import simulator.control.Controller;
+import simulator.model.RoadMap;
+import simulator.model.Vehicle;
 
 public class ChangeCO2ClassDialog extends JDialog {
 
@@ -18,13 +20,15 @@ public class ChangeCO2ClassDialog extends JDialog {
 	private String _vehicleID;
 	private int _CO2Class;
 	private int _ticks;
+	private RoadMap _roadMap;
 	private Controller _controller; 
 	
-	public ChangeCO2ClassDialog(Controller controller, JFrame parent) {
+	public ChangeCO2ClassDialog(Controller controller, RoadMap roadMap, JFrame parent) {
 		super(parent,true);
 		_vehicleID = "";
 		_CO2Class = 0;
 		_ticks = 0;
+		_roadMap = roadMap;
 		_controller = controller;
 		initGUI();
 	}
@@ -51,12 +55,15 @@ public class ChangeCO2ClassDialog extends JDialog {
 		JLabel vehicleLabel = new JLabel("Vehicle: ");
 		vehiclePane.add(vehicleLabel);
 		
-		JComboBox<String> vehicles = new JComboBox<String>(getVehiclesID());
+		JComboBox<String> vehicles = new JComboBox<String>();
+		fillVehicles(vehicles);
 		
 	}
 	
-	private String[] getVehiclesID() {
-		return _controller.getVehiclesID();		
+	private void fillVehicles(JComboBox<String> cb) {
+		for(Vehicle v : _roadMap.getVehicles()) {
+			
+		}
 	}
 	
 }

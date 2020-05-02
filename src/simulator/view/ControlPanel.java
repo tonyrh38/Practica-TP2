@@ -23,6 +23,7 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 	private static final long serialVersionUID = -4423199850333010661L;
 	
 	private JFileChooser _fc;
+	private RoadMap _roadMap;
 	private Controller _controller;
 	
 	public ControlPanel(Controller controller) {
@@ -60,7 +61,7 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 		changeCO2.addActionListener(new  ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ChangeCO2ClassDialog(_controller, (JFrame)getParent());
+				new ChangeCO2ClassDialog(_controller, _roadMap, (JFrame)getParent());
 			}
 		});
 		changeCO2.setIcon(new ImageIcon("resources/icons/co2class.png"));
@@ -72,16 +73,24 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 	public void onAdvanceStart(RoadMap map, List<Event> events, int time) {}
 
 	@Override
-	public void onAdvanceEnd(RoadMap map, List<Event> events, int time) {}
+	public void onAdvanceEnd(RoadMap map, List<Event> events, int time) {
+		_roadMap = map;
+	}
 
 	@Override
-	public void onEventAdded(RoadMap map, List<Event> events, Event e, int time) {}
+	public void onEventAdded(RoadMap map, List<Event> events, Event e, int time) {
+		_roadMap = map;
+	}
 
 	@Override
-	public void onReset(RoadMap map, List<Event> events, int time) {}
+	public void onReset(RoadMap map, List<Event> events, int time) {
+		_roadMap = null;
+	}
 
 	@Override
-	public void onRegister(RoadMap map, List<Event> events, int time) {}
+	public void onRegister(RoadMap map, List<Event> events, int time) {
+		_roadMap = map;
+	}
 
 	@Override
 	public void onError(String err) {}
