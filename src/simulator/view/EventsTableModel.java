@@ -16,13 +16,11 @@ public class EventsTableModel extends AbstractTableModel implements TrafficSimOb
 
 	private List<Event> _rowData;
 	private static final String[] _columnNames = {"Time", "Desc."};
-	private Controller _controller;
 	
 	
 	public EventsTableModel(Controller controller) {
 		_rowData = new ArrayList<Event>();
-		_controller = controller;
-		_controller.addObserver(this);
+		controller.addObserver(this);
 	}
 
 	

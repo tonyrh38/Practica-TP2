@@ -17,13 +17,11 @@ public class VehiclesTableModel extends AbstractTableModel implements TrafficSim
 
 	private List<Vehicle> _rowData;
 	private static final String[] _columnNames = {"Id", "Status", "Itinerary", "CO2 Class", "Max. Speed", "Speed", "Total CO2", "Distance"};
-	private Controller _controller;
 	
 	
 	public VehiclesTableModel(Controller controller) {
 		_rowData = new ArrayList<Vehicle>();
-		_controller = controller;
-		_controller.addObserver(this);
+		controller.addObserver(this);
 	}
 	
 	

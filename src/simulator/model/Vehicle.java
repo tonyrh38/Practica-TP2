@@ -10,6 +10,8 @@ import simulator.exceptions.WrongStatusException;
 
 public class Vehicle extends SimulatedObject {
 
+	public static final int maxContaminationClass = 10;
+	
 	private List<Junction> _itinerary;
 	private int _lastJunctionIndex;
 	
@@ -93,7 +95,7 @@ public class Vehicle extends SimulatedObject {
 	}
 	
 	void setContaminationClass(int c) throws WrongArgumentException {
-		if(c < 0 || c > 10) throw new WrongArgumentException("La clase de contaminación excede los límites (0 a 10).");
+		if(c < 0 || c > maxContaminationClass) throw new WrongArgumentException("La clase de contaminación excede los límites (0 a 10).");
 		else _contaminationClass = c;
 	}
 	

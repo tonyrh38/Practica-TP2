@@ -17,13 +17,11 @@ public class RoadsTableModel extends AbstractTableModel implements TrafficSimObs
 
 	private List<Road> _rowData;
 	private static final String[] _columnNames = {"Id", "Length", "Weather", "Max. Speed", "Speed Limit", "Total CO2", "CO2 Limit"};
-	private Controller _controller;
 	
 	
 	public RoadsTableModel(Controller controller) {
 		_rowData = new ArrayList<Road>();
-		_controller = controller;
-		_controller.addObserver(this);
+		controller.addObserver(this);
 	}
 
 	

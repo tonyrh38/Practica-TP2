@@ -17,13 +17,11 @@ public class JunctionsTableModel extends AbstractTableModel implements TrafficSi
 
 	private List<Junction> _rowData;
 	private static final String[] _columnNames = {"Id", "Green", "Queues"};
-	private Controller _controller;
 	
 	
 	public JunctionsTableModel(Controller controller) {
 		_rowData = new ArrayList<Junction>();
-		_controller = controller;
-		_controller.addObserver(this);
+		controller.addObserver(this);
 	}
 
 	

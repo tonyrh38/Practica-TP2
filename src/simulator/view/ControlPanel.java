@@ -35,7 +35,7 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 	
 	private void initGUI() {
 		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-		//TODO: Revisar si se necesitan los botones como atributos privados
+		
 		JButton load = new JButton();
 		load.setToolTipText("Load a file");
 		load.addActionListener(new ActionListener() {
