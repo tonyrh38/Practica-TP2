@@ -51,7 +51,7 @@ public class TrafficSimulator implements Observable<TrafficSimObserver> {
 			for(TrafficSimObserver o : _observers) {
 				o.onAdvanceStart(_mapaCarreteras, _listaEventos, _time);
 			}
-			//2)
+			//2) Tengo que hacerlo así porque si lo hago con (Event e : _listaEventos) salta excepcion.
 			for(int i = 0; i < _listaEventos.size();) {
 				Event e = _listaEventos.get(i);
 				if(e.getTime() == _time) {

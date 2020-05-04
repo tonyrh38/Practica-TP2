@@ -167,7 +167,6 @@ public class Main {
 					new MainWindow(controller);
 				}
 			});
-			controller.run(_ticks, System.out);
 		} catch (Exception e) {
 			System.out.format(e.getMessage() + " %n %n");
 		}		
