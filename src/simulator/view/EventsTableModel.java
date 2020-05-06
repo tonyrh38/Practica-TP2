@@ -77,7 +77,10 @@ public class EventsTableModel extends AbstractTableModel implements TrafficSimOb
 	}
 
 	@Override
-	public void onRegister(RoadMap map, List<Event> events, int time) {}
+	public void onRegister(RoadMap map, List<Event> events, int time) {
+		_rowData = events;
+		fireTableDataChanged();
+	}
 
 	@Override
 	public void onError(String err) {}

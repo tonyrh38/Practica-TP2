@@ -26,7 +26,11 @@ public class NewSetWeatherEvent extends Event {
 
 	@Override
 	public String toString() {
-		return "Change Weather: " + _weatherList.toString();
+		String message = "Change Weather: [";
+		for(Pair<String, Weather> p : _weatherList) {
+			message += "("+ p.getFirst() +","+ p.getSecond().toString() +")";
+		}
+		return  message + "]";
 	}
 	
 }

@@ -1,5 +1,6 @@
 package simulator.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONObject;
@@ -19,6 +20,7 @@ public class TrafficSimulator implements Observable<TrafficSimObserver> {
 		_mapaCarreteras = new RoadMap();
 		_listaEventos = new SortedArrayList<Event>();
 		_time = 0;
+		_observers = new ArrayList<TrafficSimObserver>();
 	}
 
 	

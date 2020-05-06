@@ -34,7 +34,7 @@ public class Main {
 	private static String _inFile = null;
 	private static String _outFile = null;
 	private static int _ticks = 0;
-	private static String _mode = "gui";
+	private static String _mode;
 	private static Factory<Event> _eventsFactory = null;
 
 	private static void parseArgs(String[] args) {
@@ -107,7 +107,7 @@ public class Main {
 	}
 
 	private static void parseModeOption(CommandLine line) throws ParseException {
-		_mode = line.getOptionValue("m");
+		_mode = (line.getOptionValue("m") != null)? line.getOptionValue("m"):"gui";
 	}
 	
 	private static void initFactories() {
@@ -148,19 +148,14 @@ public class Main {
 		in.close();
 	}
 
-	private static void startGUIMode() {
+	private static void startGUIMode() throws IOException {
+		InputStream in = new FileInputStream(new File(_inFile));
 		TrafficSimulator ts = new TrafficSimulator();		
 		
 		try {
 			Controller controller = new Controller(ts, _eventsFactory);
-			try {
-				InputStream in = new FileInputStream(new File(_inFile));
-				controller.loadEvents(in);
-				in.close();
-			} 
-			catch (FileNotFoundException e1) {
-				System.out.format(e1.getMessage() + " %n %n");
-			}
+			try {controller.loadEvents(in);} 
+			catch (Exception e1) {System.out.format(e1.getMessage() + " %n %n");}
 			SwingUtilities.invokeLater(new Runnable() {
 				@ Override
 				public void run() {
@@ -169,7 +164,8 @@ public class Main {
 			});
 		} catch (Exception e) {
 			System.out.format(e.getMessage() + " %n %n");
-		}		
+		}	
+		in.close();
 	}
 	
 	private static void start(String[] args) throws IOException {
@@ -192,7 +188,6 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }

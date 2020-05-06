@@ -26,7 +26,11 @@ public class NewSetContClassEvent extends Event {
 	
 	@Override
 	public String toString() {
-		return "Change CO2 Class: " + _contaminationClassList.toString();
+		String message = "Change CO2 Class: [";
+		for(Pair<String,Integer> p : _contaminationClassList) {
+			message += "("+ p.getFirst() +","+ p.getSecond() +")";
+		}
+		return  message + "]";
 	}
 	
 }

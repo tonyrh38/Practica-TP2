@@ -12,6 +12,12 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import simulator.control.Controller;
 import simulator.model.Event;
@@ -26,6 +32,10 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 	private ChangeCO2ClassDialog _co2Class;
 	private ChangeWeatherDialog _weather;
 	
+	private int _ticks;
+	
+	private boolean _stopped;
+	
 	private RoadMap _roadMap;
 	private int _time;
 	
@@ -34,6 +44,8 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 	public ControlPanel(Controller controller) {
 		_fc = new JFileChooser();
 		_co2Class = new ChangeCO2ClassDialog(_controller, (JFrame)getParent());
+		_weather = new ChangeWeatherDialog(_controller, (JFrame)getParent());
+		_ticks = 0;
 		_controller = controller;
 		_controller.addObserver(this);
 		initGUI();
@@ -85,6 +97,7 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 				_weather.show(_roadMap, _time);
 			}
 		});
+		changeWeather.setIcon(new ImageIcon("resources/icons/weather.png"));
 		add(changeWeather);
 		
 		// Run/Stop Simulation Pane
@@ -94,9 +107,74 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 		
 		// Run Button
 		JButton runButton = new JButton();
+		runButton.setToolTipText("Runs the simulator");
+		runButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				run_sim(_ticks);
+			}
+		});
+		runButton.setIcon(new ImageIcon("resources/icons/run.png"));
+		runPane.add(runButton);
 		
+		// Stop Button
+		JButton stopButton = new JButton();
+		stopButton.setToolTipText("Stops the simulator");
+		stopButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				stop();
+			}
+		});
+		stopButton.setIcon(new ImageIcon("resources/icons/stop.png"));
+		runPane.add(stopButton);
 		
+		// Tick Selection
+		JSpinner ticksSpinner = new JSpinner(new SpinnerNumberModel(10,1,10000,1));
+		ticksSpinner.addChangeListener(new ChangeListener() {
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				_ticks = (int)ticksSpinner.getModel().getValue();
+			}
+		});
+		runPane.add(ticksSpinner);
 		
+		// Quit Button
+		JButton quitButton = new JButton();
+		quitButton.setHorizontalAlignment(SwingConstants.RIGHT);
+		quitButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(JOptionPane.showConfirmDialog(getParent(), "¿Está seguro de querer salir?") == JOptionPane.OK_OPTION) System.exit(0);
+			}
+		});
+		quitButton.setIcon(new ImageIcon("resources/icons/exit.png"));
+		add(quitButton);
+	}
+	
+	private void run_sim(int n) {
+		if (n > 0 && !_stopped) {
+			try {
+				_controller.run(1,null);
+			} catch (Exception e ) {
+				JOptionPane.showMessageDialog(getParent(), "Error en la ejecución del simulador", "", JOptionPane.ERROR_MESSAGE);
+				_stopped = true;
+				return;
+			}
+			SwingUtilities.invokeLater( new Runnable() {
+				@Override
+				public void run() {
+					run_sim( n - 1);
+				}
+			});
+		} else {
+			//enableToolBar( true );
+			_stopped = true ;
+		}
+	}
+	
+	private void stop() {
+		_stopped = true ;
 	}
 	
 	// TrafficSimObserver Interface Methods
