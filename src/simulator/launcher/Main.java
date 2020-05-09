@@ -148,13 +148,17 @@ public class Main {
 		in.close();
 	}
 
-	private static void startGUIMode() throws IOException {
-		InputStream in = new FileInputStream(new File(_inFile));
+	private static void startGUIMode() {
+	
 		TrafficSimulator ts = new TrafficSimulator();		
 		
 		try {
 			Controller controller = new Controller(ts, _eventsFactory);
-			try {controller.loadEvents(in);} 
+			try {
+				InputStream in = new FileInputStream(new File(_inFile));
+				controller.loadEvents(in);
+				in.close();
+				} 
 			catch (Exception e1) {System.out.format(e1.getMessage() + " %n %n");}
 			SwingUtilities.invokeLater(new Runnable() {
 				@ Override
@@ -165,7 +169,6 @@ public class Main {
 		} catch (Exception e) {
 			System.out.format(e.getMessage() + " %n %n");
 		}	
-		in.close();
 	}
 	
 	private static void start(String[] args) throws IOException {

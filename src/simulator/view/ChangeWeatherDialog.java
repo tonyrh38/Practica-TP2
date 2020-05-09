@@ -1,5 +1,6 @@
 package simulator.view;
 
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -47,7 +49,7 @@ public class ChangeWeatherDialog extends JDialog {
 		super(parent,true);
 		_roadID = "";
 		_weather = "";
-		_ticks = 0;
+		_ticks = 1;
 		_controller = controller;
 		_roadModel = new DefaultComboBoxModel<String>();
 		_weatherModel = new DefaultComboBoxModel<String>();
@@ -65,16 +67,18 @@ public class ChangeWeatherDialog extends JDialog {
 		// Message Pane
 		JLabel message = new JLabel("Schedule an event to change the weather of a road after a given number of simulation ticks from now.");
 		message.setAlignmentX(CENTER_ALIGNMENT);
+		message.setBorder(new EmptyBorder(10,10,10,10));
 		mainPane.add(message);
 		
 		// Selection Pane
 		JPanel selectionPane = new JPanel();
 		selectionPane.setLayout(new GridLayout(1,3));
+		selectionPane.setBorder(new EmptyBorder(10,10,10,10));
 		mainPane.add(selectionPane);
 		
 		//Road Selection
 		JPanel roadPane = new JPanel();
-		roadPane.setLayout(new BoxLayout(roadPane, BoxLayout.LINE_AXIS));
+		roadPane.setLayout(new FlowLayout(FlowLayout.CENTER,10,10));
 		selectionPane.add(roadPane);
 		
 		JLabel roadLabel = new JLabel("Road: ");
@@ -91,7 +95,7 @@ public class ChangeWeatherDialog extends JDialog {
 		
 		// Weather Selection
 		JPanel weatherPane = new JPanel();
-		weatherPane.setLayout(new BoxLayout(weatherPane, BoxLayout.LINE_AXIS));
+		weatherPane.setLayout(new FlowLayout(FlowLayout.CENTER,10,10));
 		selectionPane.add(weatherPane);
 		
 		JLabel weatherLabel = new JLabel("Weather: ");
@@ -108,7 +112,7 @@ public class ChangeWeatherDialog extends JDialog {
 		
 		// Ticks Selection
 		JPanel ticksPane = new JPanel();
-		ticksPane.setLayout(new BoxLayout(ticksPane, BoxLayout.LINE_AXIS));
+		ticksPane.setLayout(new FlowLayout(FlowLayout.CENTER,10,10));
 		selectionPane.add(ticksPane);
 		
 		JLabel ticksLabel = new JLabel("Ticks: ");
@@ -125,7 +129,7 @@ public class ChangeWeatherDialog extends JDialog {
 		
 		// Buttons Pane
 		JPanel buttonsPane = new JPanel();
-		buttonsPane.setLayout(new BoxLayout(buttonsPane, BoxLayout.LINE_AXIS));
+		buttonsPane.setLayout(new FlowLayout(FlowLayout.CENTER,10,10));
 		mainPane.add(buttonsPane);
 		
 		// Ok Button

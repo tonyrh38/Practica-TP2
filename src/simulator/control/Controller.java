@@ -47,8 +47,10 @@ public class Controller {
 				_simuladorTrafico.advance();
 				json.append("states",_simuladorTrafico.report());
 			}	
-			PrintStream p = new PrintStream(out);
-			p.print(json.toString(3));
+			if(out != null){
+				PrintStream p = new PrintStream(out);
+				p.print(json.toString(3));
+			}
 		} catch (Exception e) {
 			System.out.format(e.getMessage() + " %n %n");
 		}

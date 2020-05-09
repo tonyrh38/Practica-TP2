@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 import simulator.control.Controller;
 import simulator.model.Event;
@@ -21,8 +22,8 @@ public class StatusBar extends JPanel implements TrafficSimObserver {
 	
 	
 	public StatusBar(Controller controller) {
-		_time = new JLabel(Integer.toString(0));
-		_message = new JLabel("");
+		_time = new JLabel("Time: " + Integer.toString(0));
+		_message = new JLabel("Event: ");
 		_controller = controller;
 		_controller.addObserver(this);
 		initGUI();
@@ -31,13 +32,14 @@ public class StatusBar extends JPanel implements TrafficSimObserver {
 	
 	private void initGUI() {
 		setLayout(new GridLayout(1,2));
+		setBorder(new EmptyBorder(0, 5, 5, 0));
 		add(_time);
 		add(_message);	
 	}
 	
 	@Override
 	public void onAdvanceStart(RoadMap map, List<Event> events, int time) {
-		_time.setText(Integer.toString(time));
+		_time.setText("Time: " + Integer.toString(time));
 	}
 
 	@Override
@@ -46,12 +48,12 @@ public class StatusBar extends JPanel implements TrafficSimObserver {
 
 	@Override
 	public void onEventAdded(RoadMap map, List<Event> events, Event e, int time) {
-		_message.setText(e.toString());
+		_message.setText("Event: " + e.toString());
 	}
 
 	@Override
 	public void onReset(RoadMap map, List<Event> events, int time) {
-		_time.setText(Integer.toString(0));
+		_time.setText("Time: 0");
 		_message.setText("");
 	}
 

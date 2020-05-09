@@ -42,6 +42,7 @@ public class VehiclesTableModel extends AbstractTableModel implements TrafficSim
 		Vehicle v = _rowData.get(rowIndex);
 		switch(columnIndex) {
 			case 0: object = v.getId();
+				break;
 			case 1: 
 				switch(v.getStatus()) {
 					case ARRIVED: object = "Arrived";
@@ -55,12 +56,19 @@ public class VehiclesTableModel extends AbstractTableModel implements TrafficSim
 					default:
 						break;
 				}
+				break;
 			case 2: object = v.getItinerary().toString();
+				break;
 			case 3: object = v.getContaminationClass();
+				break;
 			case 4: object = v.getMaximumSpeed();
+				break;
 			case 5: object = v.getCurrentSpeed();
+				break;
 			case 6: object = v.getTotalContamination();
+				break;
 			case 7: object = v.getTotalTravelledDistance();
+				break;
 			default: assert(false);
 		}
 		return object;
@@ -90,7 +98,8 @@ public class VehiclesTableModel extends AbstractTableModel implements TrafficSim
 
 	@Override
 	public void onReset(RoadMap map, List<Event> events, int time) {
-		_rowData.clear();
+		_rowData = map.getVehicles();
+		fireTableDataChanged();
 	}
 
 	@Override
