@@ -43,6 +43,7 @@ public class ChangeCO2ClassDialog extends JDialog {
 	private DefaultComboBoxModel<String> _vehicleModel;
 	private DefaultComboBoxModel<Integer> _co2ClassModel;
 	
+	
 	public ChangeCO2ClassDialog(Controller controller, JFrame parent) {
 		super(parent,true);
 		_vehicleID = "";
@@ -53,6 +54,7 @@ public class ChangeCO2ClassDialog extends JDialog {
 		_co2ClassModel = new DefaultComboBoxModel<Integer>();
 		initGUI();
 	}
+	
 	
 	private void initGUI() {
 		setTitle("Change CO2 Class");
@@ -102,7 +104,7 @@ public class ChangeCO2ClassDialog extends JDialog {
 		co2ClassCB.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				_co2Class = (int)co2ClassCB.getSelectedItem();
+				_co2Class = (Integer)co2ClassCB.getSelectedItem();
 			}
 		});
 		co2ClassPane.add(co2ClassCB);
@@ -138,12 +140,12 @@ public class ChangeCO2ClassDialog extends JDialog {
 					List<Pair<String, Integer>> list = new ArrayList<Pair<String, Integer>>();
 					list.add(new Pair<String,Integer>(_vehicleID,_co2Class));
 					try {
-						NewSetContClassEvent ev = new NewSetContClassEvent(_time + _ticks, list);
-						_controller.addEvent(ev);
+						_controller.addEvent(new NewSetContClassEvent(_time + _ticks, list));
 					} catch (WrongArgumentException e1) {
 						e1.printStackTrace();
 						System.out.println(e1.getMessage());
 					}
+					setVisible(false);
 				}
 			}
 		});
@@ -169,9 +171,10 @@ public class ChangeCO2ClassDialog extends JDialog {
 			_vehicleModel.addElement(v.getId());
 		}
 		
-		_co2ClassModel.removeAllElements();
-		for(int i = 0; i <= Vehicle.maxContaminationClass; i++) {
-			_co2ClassModel.addElement(i);			
+		if(_co2ClassModel.getSize() == 0) {
+			for(int i = 0; i <= Vehicle.maxContaminationClass; i++) {
+				_co2ClassModel.addElement(Integer.valueOf(i));			
+			}
 		}
 		
 		_time = time;

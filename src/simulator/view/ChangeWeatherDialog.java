@@ -145,6 +145,7 @@ public class ChangeWeatherDialog extends JDialog {
 					} catch (WrongArgumentException e1) {
 						e1.printStackTrace();
 					}
+					setVisible(false);
 				}
 			}
 		});

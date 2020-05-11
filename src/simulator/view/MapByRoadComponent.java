@@ -27,6 +27,7 @@ public class MapByRoadComponent extends JComponent implements TrafficSimObserver
 	private static final int _JRADIUS = 10;
 
 	private static final Color _BG_COLOR = Color.WHITE;
+	private static final Color _ROAD_COLOR = Color.BLACK;
 	private static final Color _JUNCTION_COLOR = Color.BLUE;
 	private static final Color _JUNCTION_LABEL_COLOR = new Color(200, 100, 0);
 	private static final Color _GREEN_LIGHT_COLOR = Color.GREEN;
@@ -52,6 +53,8 @@ public class MapByRoadComponent extends JComponent implements TrafficSimObserver
 		int x2 = getWidth() - 100;
 		for(Road r : _roadMap.getRoads()) {
 			int y = (i+1) * 50;	
+			
+			g.setColor(_ROAD_COLOR);
 			g.drawLine(x1, y, x2, y);
 			
 			// Source Junction
