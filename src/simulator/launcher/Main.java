@@ -77,7 +77,7 @@ public class Main {
 		cmdLineOptions.addOption(Option.builder("o").longOpt("output").hasArg().desc("Output file, where reports are written.").build());
 		cmdLineOptions.addOption(Option.builder("t").longOpt("ticks").hasArg().desc("Ticks to the simulator’s main loop (default value is 10)").build());
 		cmdLineOptions.addOption(Option.builder("h").longOpt("help").desc("Print this message").build());
-		cmdLineOptions.addOption(Option.builder("m").longOpt("mode").desc("Choose between GUI or Console view").build());
+		cmdLineOptions.addOption(Option.builder("m").longOpt("mode").hasArg().desc("Choose between GUI or Console view").build());
 
 		return cmdLineOptions;
 	}
