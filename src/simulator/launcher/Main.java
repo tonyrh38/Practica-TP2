@@ -99,6 +99,7 @@ public class Main {
 
 	private static void parseOutFileOption(CommandLine line) throws ParseException {
 		_outFile = line.getOptionValue("o");
+		if(_outFile == null) throw new ParseException("An output file is missing");
 	}
 	
 	private static void parseTicksOption(CommandLine line) throws ParseException {
@@ -106,7 +107,9 @@ public class Main {
 	}
 
 	private static void parseModeOption(CommandLine line) throws ParseException {
-		_mode = (line.getOptionValue("m") != null)? line.getOptionValue("m"):"gui";
+		_mode = line.getOptionValue("m");
+		if(_mode == null) _mode = "gui";
+		else if (!_mode.equalsIgnoreCase("gui") && !_mode.equalsIgnoreCase("console")) throw new ParseException("Invalid mode selected");
 	}
 	
 	private static void initFactories() {
@@ -173,8 +176,9 @@ public class Main {
 	private static void start(String[] args) throws IOException {
 		initFactories();
 		parseArgs(args);
-		if(_mode != "gui") startBatchMode();
-		else startGUIMode();
+		if(_mode.equalsIgnoreCase("console")) startBatchMode(); // Mostrar error 
+		else if(_mode.equalsIgnoreCase("gui")) startGUIMode();
+		else System.out.println("Something's wrong, I can feel it");
 	}
 
 	// example command lines:
