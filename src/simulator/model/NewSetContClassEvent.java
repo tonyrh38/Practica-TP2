@@ -23,5 +23,14 @@ public class NewSetContClassEvent extends Event {
 			else map.getVehicle(cc.getFirst()).setContaminationClass(cc.getSecond());
 		}
 	}
-
+	
+	@Override
+	public String toString() {
+		String message = "Change CO2 Class: [";
+		for(Pair<String,Integer> p : _contaminationClassList) {
+			message += "("+ p.getFirst() +","+ p.getSecond() +")";
+		}
+		return  message + "]";
+	}
+	
 }

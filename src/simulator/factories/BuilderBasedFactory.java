@@ -22,7 +22,7 @@ public class BuilderBasedFactory<T> implements Factory<T> {
 					return o;
 			}
 		}
-
+		
 		throw new IllegalArgumentException("Invalid value for createInstance: " + info);
 	}
 }

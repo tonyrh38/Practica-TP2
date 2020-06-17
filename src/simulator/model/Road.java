@@ -50,16 +50,44 @@ public abstract class Road extends SimulatedObject {
 	}
 
 	
-	Junction getSource() {
+	public boolean isGreen() {
+		return _destination.isGreen(this);
+	}
+	
+	public Junction getSource() {
 		return _source;
 	}
 	
-	Junction getDestination() {
+	public Junction getDestination() {
 		return _destination;
 	}
 	
-	int getLength() {
+	public int getLength() {
 		return _length;
+	}
+	
+	public int getMaximumSpeed() {
+		return _maximumSpeed;
+	}
+	
+	public int getCurrentSpeedLimit() {
+		return _currentSpeedLimit;
+	}
+	
+	public int getContaminationAlarmLimit() {
+		return _contaminationAlarmLimit;
+	}
+	
+	public Weather getWeatherConditions() {
+		return _weatherConditions;
+	}
+	
+	public int getTotalContamination() {
+		return _totalContamination;
+	}
+	
+	public List<Vehicle> getVehicles(){
+		return _vehicles;
 	}
 	
 	void enter(Vehicle v) throws WrongArgumentException {

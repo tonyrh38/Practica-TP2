@@ -11,12 +11,14 @@ import org.json.JSONTokener;
 import simulator.exceptions.WrongArgumentException;
 import simulator.factories.Factory;
 import simulator.model.Event;
+import simulator.model.TrafficSimObserver;
 import simulator.model.TrafficSimulator;
 
 public class Controller {
 	
 	TrafficSimulator _simuladorTrafico;
 	Factory<Event> _factoriaEventos;
+	
 	
 	public Controller(TrafficSimulator sim, Factory<Event> eventsFactory) throws WrongArgumentException {
 		if(sim == null || eventsFactory == null) throw new WrongArgumentException("Los datos no son validos.");
@@ -39,15 +41,16 @@ public class Controller {
 	}
 	
 	public void run(int n, OutputStream out) {
-		JSONObject json = new JSONObject();
-		
+		JSONObject json = new JSONObject();	
 		try {
 			for(int i = 0; i < n; i++) {
 				_simuladorTrafico.advance();
 				json.append("states",_simuladorTrafico.report());
 			}	
-			PrintStream p = new PrintStream(out);
-			p.print(json.toString(3));
+			if(out != null){
+				PrintStream p = new PrintStream(out);
+				p.print(json.toString(3));
+			}
 		} catch (Exception e) {
 			System.out.format(e.getMessage() + " %n %n");
 		}
@@ -55,6 +58,19 @@ public class Controller {
 	
 	public void reset() {
 		_simuladorTrafico.reset();
+	}
+	
+	// Model Methods
+	public void addObserver(TrafficSimObserver o) {
+		_simuladorTrafico.addObserver(o);
+	}
+	
+	public void removeObserver(TrafficSimObserver o) {
+		_simuladorTrafico.removeObserver(o);
+	}
+	
+	public void addEvent(Event e) {
+		_simuladorTrafico.addEvent(e);
 	}
 	
 }

@@ -9,6 +9,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.SwingUtilities;
+
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -23,6 +25,7 @@ import simulator.model.DequeuingStrategy;
 import simulator.model.Event;
 import simulator.model.LightSwitchingStrategy;
 import simulator.model.TrafficSimulator;
+import simulator.view.MainWindow;
 
 public class Main {
 
@@ -30,6 +33,7 @@ public class Main {
 	private static String _inFile = null;
 	private static String _outFile = null;
 	private static int _ticks = 0;
+	private static String _mode;
 	private static Factory<Event> _eventsFactory = null;
 
 	private static void parseArgs(String[] args) {
@@ -44,10 +48,10 @@ public class Main {
 		try {
 			CommandLine line = parser.parse(cmdLineOptions, args);
 			parseHelpOption(line, cmdLineOptions);
+			parseModeOption(line);
 			parseInFileOption(line);
-			parseOutFileOption(line);
+			if(_mode != "gui") parseOutFileOption(line);
 			parseTicksOption(line);
-
 			// if there are some remaining arguments, then something wrong is
 			// provided in the command line!
 			//
@@ -73,6 +77,7 @@ public class Main {
 		cmdLineOptions.addOption(Option.builder("o").longOpt("output").hasArg().desc("Output file, where reports are written.").build());
 		cmdLineOptions.addOption(Option.builder("t").longOpt("ticks").hasArg().desc("Ticks to the simulator’s main loop (default value is 10)").build());
 		cmdLineOptions.addOption(Option.builder("h").longOpt("help").desc("Print this message").build());
+		cmdLineOptions.addOption(Option.builder("m").longOpt("mode").hasArg().desc("Choose between GUI or Console view").build());
 
 		return cmdLineOptions;
 	}
@@ -87,19 +92,26 @@ public class Main {
 
 	private static void parseInFileOption(CommandLine line) throws ParseException {
 		_inFile = line.getOptionValue("i");
-		if (_inFile == null) {
+		if (_inFile == null && _mode != "gui") {
 			throw new ParseException("An events file is missing");
 		}
 	}
 
 	private static void parseOutFileOption(CommandLine line) throws ParseException {
 		_outFile = line.getOptionValue("o");
+		if(_outFile == null) throw new ParseException("An output file is missing");
 	}
 	
 	private static void parseTicksOption(CommandLine line) throws ParseException {
 		_ticks = (line.getOptionValue("t") != null)? Integer.parseInt(line.getOptionValue("t")) : _timeLimitDefaultValue;
 	}
 
+	private static void parseModeOption(CommandLine line) throws ParseException {
+		_mode = line.getOptionValue("m");
+		if(_mode == null) _mode = "gui";
+		else if (!_mode.equalsIgnoreCase("gui") && !_mode.equalsIgnoreCase("console")) throw new ParseException("Invalid mode selected");
+	}
+	
 	private static void initFactories() {
 		List<Builder<LightSwitchingStrategy>> lsbs = new ArrayList<>();
 		lsbs.add(new RoundRobinStrategyBuilder());
@@ -138,10 +150,35 @@ public class Main {
 		in.close();
 	}
 
+	private static void startGUIMode() {
+	
+		TrafficSimulator ts = new TrafficSimulator();		
+		
+		try {
+			Controller controller = new Controller(ts, _eventsFactory);
+			try {
+				InputStream in = new FileInputStream(new File(_inFile));
+				controller.loadEvents(in);
+				in.close();
+				} 
+			catch (Exception e1) {System.out.format(e1.getMessage() + " %n %n");}
+			SwingUtilities.invokeLater(new Runnable() {
+				@ Override
+				public void run() {
+					new MainWindow(controller);
+				}
+			});
+		} catch (Exception e) {
+			System.out.format(e.getMessage() + " %n %n");
+		}	
+	}
+	
 	private static void start(String[] args) throws IOException {
 		initFactories();
 		parseArgs(args);
-		startBatchMode();
+		if(_mode.equalsIgnoreCase("console")) startBatchMode(); // Mostrar error 
+		else if(_mode.equalsIgnoreCase("gui")) startGUIMode();
+		else System.out.println("Something's wrong, I can feel it");
 	}
 
 	// example command lines:
@@ -157,7 +194,6 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }
