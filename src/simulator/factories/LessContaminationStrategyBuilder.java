@@ -8,7 +8,7 @@ import simulator.model.LessContaminationStrategy;
 
 public class LessContaminationStrategyBuilder extends Builder<DequeuingStrategy> {
 
-	LessContaminationStrategyBuilder(String type) {
+	public LessContaminationStrategyBuilder() {
 		super("less_cont_dqs");
 	}
 
