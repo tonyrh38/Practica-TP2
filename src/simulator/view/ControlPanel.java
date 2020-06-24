@@ -37,6 +37,7 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 	private JButton _load;
 	private JButton _changeCO2;
 	private JButton _changeWeather;
+	private JButton _speedHistory;
 	private JButton _runButton;
 	private JButton _stopButton;
 	private JSpinner _ticksSpinner;
@@ -45,6 +46,7 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 	private JFileChooser _fc;
 	private ChangeCO2ClassDialog _co2Class;
 	private ChangeWeatherDialog _weather;
+	private SpeedHistoryDialog _history;
 	
 	private int _ticks;
 	
@@ -61,6 +63,7 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 		_fc = new JFileChooser();
 		_co2Class = new ChangeCO2ClassDialog(controller, (JFrame)getParent());
 		_weather = new ChangeWeatherDialog(controller, (JFrame)getParent());
+		_history = new SpeedHistoryDialog(controller, (JFrame)getParent());
 		_ticks = 1;
 		_stopped = true;
 		_controller = controller;
@@ -122,6 +125,18 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 		});
 		_changeWeather.setIcon(new ImageIcon("resources/icons/weather.png"));
 		_toolBar.add(_changeWeather);
+		
+		// Speed History Button
+		_speedHistory = new JButton();
+		_speedHistory.setToolTipText("Shows the speed history");
+		_speedHistory.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				_history.show(_roadMap, _time);
+			}
+		});
+		_speedHistory.setIcon(new ImageIcon("resources/icons/pie-chart.png"));
+		_toolBar.add(_speedHistory);
 		
 		_toolBar.addSeparator();
 		
@@ -211,6 +226,7 @@ public class ControlPanel extends JPanel implements TrafficSimObserver {
 		_load.setEnabled(enable);
 		_changeCO2.setEnabled(enable);
 		_changeWeather.setEnabled(enable);
+		_speedHistory.setEnabled(enable);
 		_runButton.setEnabled(enable);
 		_ticksSpinner.setEnabled(enable);
 		_quitButton.setEnabled(enable);
