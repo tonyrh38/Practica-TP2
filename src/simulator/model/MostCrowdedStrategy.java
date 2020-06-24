@@ -6,6 +6,7 @@ public class MostCrowdedStrategy implements LightSwitchingStrategy {
 
 	private int _timeSlot;
 	
+	
 	public MostCrowdedStrategy(int timeSlot) {
 		_timeSlot = timeSlot;
 	}
